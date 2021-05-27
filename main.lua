@@ -32,3 +32,16 @@ function love.keypressed(key)
     end
 
 end
+
+function love.draw()
+    -- begin rendering using the push lib
+    push:start()
+    
+    -- print the welcome text
+    -- position it in the middle as close as possible 
+    love.graphics.printf('Hello New Pong!', 0, VIRTUAL_HEIGHT/2 - 8, VIRTUAL_WIDTH, 'center')
+    --NOTE: ALOGNMENT IS BASED ON THE WHOLE WIDTH OF THE WINDOW, THUS WE SET x = 0 NOT VIRTUAL_WIDTH/2
+
+    -- end the rendering process by push lib
+    push:apply('end')
+end
