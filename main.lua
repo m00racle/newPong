@@ -17,11 +17,16 @@ VIRTUAL_WIDTH = 432
 
 --load the initial settings.
 function love.load()
+    -- the welcome font seems so blurry try the filter.
+    love.graphics.setDefaultFilter('nearest', 'nearest')
     --set the display (both windows and virtual) 
     -- I want vsync but the user should be prevented to make fullscreen, at this initial stage the user must not allowed to resize the screen.
     push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {fullscreen=false, vsync=true, resizable=false})
     --set the title of the game in the window to identify that we are runnig the correct app
     love.window.setTitle('The New Pong!')
+
+    -- I want to use more retro font style (like minecraft maybe?)
+    smallFont = love.graphics.newFont('Pixelmania.ttf', 8)
 end
 
 --I want to make the apps quit when the user hit the escape key
@@ -37,9 +42,15 @@ function love.draw()
     -- begin rendering using the push lib
     push:start()
     
+    --some modification: change the background to look less black
+    love.graphics.clear(40/255, 45/255, 52/255, 255/255)
+
+    -- set the font to the new font ():
+    love.graphics.setFont(smallFont)
+
     -- print the welcome text
     -- position it in the middle as close as possible 
-    love.graphics.printf('Hello New Pong!', 0, VIRTUAL_HEIGHT/2 - 8, VIRTUAL_WIDTH, 'center')
+    love.graphics.printf('HELLO NEW PONG', 0, VIRTUAL_HEIGHT/2 - 8, VIRTUAL_WIDTH, 'center')
     --NOTE: ALOGNMENT IS BASED ON THE WHOLE WIDTH OF THE WINDOW, THUS WE SET x = 0 NOT VIRTUAL_WIDTH/2
 
     -- end the rendering process by push lib
