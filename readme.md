@@ -11,7 +11,7 @@ Pong Day 2:
 
 [x] make the game scene (ball, stick, and scores)
 
-[ ] make the stick for player 1 and player 2 moves when certain key is pressed down (hold)!
+[x] make the stick for player 1 and player 2 moves when certain key is pressed down (hold)!
 
 [x] ~~Make the new font to make the scene looks retro~~
 
