@@ -14,6 +14,9 @@ WINDOW_WIDTH = 1280
 VIRTUAL_HEIGHT = 243
 VIRTUAL_WIDTH = 432
 
+-- setting font 
+fontChoice = 'basefont.ttf'
+
 
 --load the initial settings.
 function love.load()
@@ -26,7 +29,8 @@ function love.load()
     love.window.setTitle('The New Pong!')
 
     -- I want to use more retro font style (like minecraft maybe?)
-    smallFont = love.graphics.newFont('Pixelmania.ttf', 8)
+    smallFont = love.graphics.newFont(fontChoice, 8)
+    largeFont = love.graphics.newFont(fontChoice, 30)
 end
 
 --I want to make the apps quit when the user hit the escape key
@@ -50,8 +54,30 @@ function love.draw()
 
     -- print the welcome text
     -- position it in the middle as close as possible 
+
     love.graphics.printf('HELLO NEW PONG', 0, VIRTUAL_HEIGHT/2 - 8, VIRTUAL_WIDTH, 'center')
-    --NOTE: ALOGNMENT IS BASED ON THE WHOLE WIDTH OF THE WINDOW, THUS WE SET x = 0 NOT VIRTUAL_WIDTH/2
+    
+    --NOTE: ALIGNMENT IS BASED ON THE WHOLE WIDTH OF THE WINDOW, THUS WE SET x = 0 NOT VIRTUAL_WIDTH/2
+
+    --printing the score 
+    -- I want to use bigger font for this:
+    love.graphics.setFont(largeFont)
+    love.graphics.printf("0 - 0", 0, 0, VIRTUAL_WIDTH, 'center')
+
+    -- rendering the ball
+    -- the ball will be rendered as circle
+    love.graphics.circle('fill', VIRTUAL_WIDTH/2 - 3, VIRTUAL_HEIGHT/2 -3, 3)
+
+    -- the specification for the Player's pad:
+    PAD_LENGTH = 40
+    PAD_THICK = 5
+
+    -- make the player 1 pad
+    -- the pad ia a rectangle 
+    love.graphics.rectangle("line", 3, VIRTUAL_HEIGHT/2 - PAD_LENGTH / 2, PAD_THICK, PAD_LENGTH)
+
+    -- makt the pad for player 2
+    love.graphics.rectangle("fill", VIRTUAL_WIDTH - 3 - PAD_THICK, VIRTUAL_HEIGHT / 2 - PAD_LENGTH /2 , PAD_THICK, PAD_LENGTH)
 
     -- end the rendering process by push lib
     push:apply('end')

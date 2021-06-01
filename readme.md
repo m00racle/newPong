@@ -8,10 +8,16 @@ So simple a Lua programming language is it has no fancy features even on its syn
 One thing I must remember is to always read the documentation because the sequence of the parameter values inputs are important!
 
 Pong Day 2:
-1. make the game scene (ball, stick, and scores)
-1. make the stick for player 1 and player 2 moves when certain key is pressed down (hold)!
-1. Make the new font to make the scene looks retro
-1. Choose one font (the best) from all other options. 
+
+[x] make the game scene (ball, stick, and scores)
+
+[ ] make the stick for player 1 and player 2 moves when certain key is pressed down (hold)!
+
+[x] ~~Make the new font to make the scene looks retro~~
+
+I guess I must just use the basic font provided by the course at this moment. The coloring limitations on this platform makes it hard to fint the correct font to put in the middle of the field as the logo for the game. 
+
+[x] Choose one font (the best) from all other options. 
 
 In Pong day -2 I have collected some interesting fonts.
 All are open source and also quite good.
