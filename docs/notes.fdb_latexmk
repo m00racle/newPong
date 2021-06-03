@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1622346653 "e:/LuaGames/newPong/docs/notes.tex" "notes.pdf" "notes" 1622346671
+["pdflatex"] 1622707961 "e:/LuaGames/newPong/docs/notes.tex" "notes.pdf" "notes" 1622707962
   "c:/texlive/2021/texmf-dist/fonts/map/fontname/texfonts.map" 1621417770 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "c:/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1621416083 1004 54797486969f23fa377b128694d548df ""
   "c:/texlive/2021/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1621416083 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -43,10 +43,10 @@
   "c:/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1621421574 5220284 67e31666ab1dc42cb3fe908b5bfa5aa2 ""
   "c:/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt" 1621421673 2737011 199ac5d81b2ae5211f59ddad923390fc ""
   "c:/texlive/2021/texmf.cnf" 1621421554 713 e69b156964470283e0530f5060668171 ""
-  "e:/LuaGames/newPong/docs/notes.tex" 1622346652 607 1d3cd0aa3e68d07180a505db90970c6b ""
-  "notes.aux" 1622346654 137 f7d52f60b381aa5368715533ba76c095 "pdflatex"
-  "notes.tex" 1622346652 607 1d3cd0aa3e68d07180a505db90970c6b ""
+  "e:/LuaGames/newPong/docs/notes.tex" 1622707959 618 d6f49621361b88ae125bf700e624075d ""
+  "notes.aux" 1622707961 137 f7d52f60b381aa5368715533ba76c095 "pdflatex"
+  "notes.tex" 1622707959 618 d6f49621361b88ae125bf700e624075d ""
   (generated)
-  "notes.log"
-  "notes.pdf"
   "notes.aux"
+  "notes.pdf"
+  "notes.log"
