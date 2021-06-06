@@ -27,11 +27,13 @@ I forgot the website which provided the font true text font (ttf) files but ther
 1. The base font I took from the course's GitHub repo.
 
 Pong day 3 TODO:
+[ ] learn how to make class like object in Lua
+[ ] all the properties and method such as movement of pads and ball must be encapsulated in this class.
 [ ] make the pads movement limited to the screen sizes
 [ ] make the ball move
 [ ] limit ball movement to upper and bottom screen borders
 [ ] simulate collision for ball
-[ ] if possible see the possibility to use the class concept in Lua (by default Lua does not support class) 
+[x] if possible see the possibility to use the class concept in Lua (by default Lua does not support class) 
 
 For now we will focus more on the collision detection to limit the object movements. 
 The ball and the pads should adhere the collision limitations.
