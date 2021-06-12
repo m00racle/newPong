@@ -26,6 +26,9 @@ I forgot the website which provided the font true text font (ttf) files but ther
 1. The Pixemania is also a good retro font with the touch of the shadow.
 1. The base font I took from the course's GitHub repo.
 
+WARNING: BUG: 
+[ ] the player 1 pad only moves upwards no matter the key pressed!!
+
 Pong day 3 TODO:
 [ ] learn how to make class like object in Lua
 [ ] all the properties and method such as movement of pads and ball must be encapsulated in this class.
