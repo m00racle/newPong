@@ -33,11 +33,17 @@ Pong day 3 TODO:
 [x] learn how to make class like object in Lua
     [ ] I need more time in this part, please refer to this [class making method](http://lua-users.org/wiki/SimpleLuaClasses) and compare should I use class() function.
     [x] check whether I can have private variable declaration in a class? Nope Lua does not offer privacy [see this documentation](https://www.lua.org/pil/16.4.html)
+
 [ ] all the properties and method such as movement of pads and ball must be encapsulated in this class.
+
 [ ] make the pads movement limited to the screen sizes
+
 [ ] make the ball move
+
 [ ] limit ball movement to upper and bottom screen borders
+
 [ ] simulate collision for ball
+
 [x] if possible see the possibility to use the class concept in Lua (by default Lua does not support class) 
 
 For now we will focus more on the collision detection to limit the object movements. 
