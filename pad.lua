@@ -31,13 +31,31 @@ function Pad:render()
 end
 
 
--- Pad:reachedEdge(topEdge, bottomEdge):
-function Pad:reachedEdge()
-    -- check if the pad reach the edge of the screen
+-- Pad.move(deltaY):
+function Pad:moveUp(deltaY)
+    if(self.posY <= 0 )
+    then
+        self.posY = self.posY
+    else
+        -- update the self y position up in the game screen
+        -- deltaY must be set by the user recommended using dt from the update love fucntion in the main framework
+        self.posY = self.posY - deltaY
+    end
+    
 end
 
+function Pad:moveDown(deltaY)
+    if((self.posY + self.length) >= self.maxY)
+    then
+        self.posY = self.posY
+    else
+        -- update the self y position up in the game screen
+        -- deltaY must be set by the user recommended using dt from the update love fucntion in the main framework
+        self.posY = self.posY + deltaY
+    end
+    
+end
 
--- Pad.move(deltaX, deltaY):
 
 -- Pad:reset()
 function Pad:reset()
