@@ -106,7 +106,7 @@ function love.update(dt)
     
     if love.keyboard.isDown('s') then
         -- move the player 1 pad downward
-        player1Y = player1Y - dt * FRAME_SPEED
+        player1Y = player1Y + dt * FRAME_SPEED
     end
 
     -- this is part for the player 2
