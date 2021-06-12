@@ -37,14 +37,6 @@ function love.load()
     smallFont = love.graphics.newFont(fontChoice, 8)
     largeFont = love.graphics.newFont(fontChoice, 30)
 
-    -- -- position of the pad for player 1
-    -- player1X = 3
-    -- player1Y = VIRTUAL_HEIGHT/2 - PAD_LENGTH / 2
-
-    -- -- position of the pad for player 2
-    -- player2X = VIRTUAL_WIDTH - 3 - PAD_THICK
-    -- player2Y = VIRTUAL_HEIGHT / 2 - PAD_LENGTH /2
-
     -- initiate player 1
     player1 = Pad:create(PAD_LENGTH, PAD_THICK, 3, VIRTUAL_HEIGHT/2 - PAD_LENGTH / 2, VIRTUAL_HEIGHT, "line")
     -- initiate player 2
@@ -87,13 +79,11 @@ function love.draw()
     -- the ball will be rendered as circle
     love.graphics.circle('fill', VIRTUAL_WIDTH/2 - 3, VIRTUAL_HEIGHT/2 -3, 3)
 
-    -- make the player 1 pad
+    -- render the player 1 pad
     -- the pad ia a rectangle 
-    -- love.graphics.rectangle("line", player1X, player1Y , PAD_THICK, PAD_LENGTH)
     player1:render()
 
-    -- makt the pad for player 2
-    -- love.graphics.rectangle("fill", player2X, player2Y, PAD_THICK, PAD_LENGTH)
+    -- render the pad for player 2
     player2:render()
 
     -- end the rendering process by push lib
@@ -106,26 +96,22 @@ function love.update(dt)
     -- this is player 1 part
     if love.keyboard.isDown("w") then
         -- move the player 1 pad upwards
-        -- player1Y = player1Y - dt * FRAME_SPEED
         player1:moveUp(dt)
     end
     
     if love.keyboard.isDown('s') then
         -- move the player 1 pad downward
-        -- player1Y = player1Y + dt * FRAME_SPEED
         player1:moveDown(dt)
     end
 
     -- this is part for the player 2
     if love.keyboard.isDown('up') then 
         -- move the player 2 pad upward
-        -- player2Y = player2Y - dt * FRAME_SPEED
         player2:moveUp(dt)
     end
 
     if love.keyboard.isDown('down') then 
         -- move the player 2 pad downward
-        -- player2Y = player2Y + dt * FRAME_SPEED
         player2:moveDown(dt)
     end
     
