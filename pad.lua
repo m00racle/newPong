@@ -21,6 +21,8 @@ function Pad:create(length, thickness, posX, posY, maxY, mode)
     thisPad.posY = posY
     thisPad.maxY = maxY
     thisPad.mode = mode
+    -- the speed of movement of the pads:
+    self.speed = 100
 
     return thisPad
 end
@@ -39,7 +41,7 @@ function Pad:moveUp(deltaY)
     else
         -- update the self y position up in the game screen
         -- deltaY must be set by the user recommended using dt from the update love fucntion in the main framework
-        self.posY = self.posY - deltaY
+        self.posY = self.posY - self.speed * deltaY
     end
     
 end
@@ -51,7 +53,7 @@ function Pad:moveDown(deltaY)
     else
         -- update the self y position up in the game screen
         -- deltaY must be set by the user recommended using dt from the update love fucntion in the main framework
-        self.posY = self.posY + deltaY
+        self.posY = self.posY + self.speed * deltaY
     end
     
 end

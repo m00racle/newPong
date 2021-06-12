@@ -17,10 +17,6 @@ VIRTUAL_WIDTH = 432
 -- setting font 
 fontChoice = 'basefont.ttf'
 
--- the speed of movement of the pads:
--- for now we make it constant
-FRAME_SPEED = 100
-
 -- require pad as class
 require 'pad'
 -- the specification for the Player's pad:
@@ -111,26 +107,26 @@ function love.update(dt)
     if love.keyboard.isDown("w") then
         -- move the player 1 pad upwards
         -- player1Y = player1Y - dt * FRAME_SPEED
-        player1:moveUp(dt*FRAME_SPEED)
+        player1:moveUp(dt)
     end
     
     if love.keyboard.isDown('s') then
         -- move the player 1 pad downward
         -- player1Y = player1Y + dt * FRAME_SPEED
-        player1:moveDown(dt*FRAME_SPEED)
+        player1:moveDown(dt)
     end
 
     -- this is part for the player 2
     if love.keyboard.isDown('up') then 
         -- move the player 2 pad upward
         -- player2Y = player2Y - dt * FRAME_SPEED
-        player2:moveUp(dt*FRAME_SPEED)
+        player2:moveUp(dt)
     end
 
     if love.keyboard.isDown('down') then 
         -- move the player 2 pad downward
         -- player2Y = player2Y + dt * FRAME_SPEED
-        player2:moveDown(dt*FRAME_SPEED)
+        player2:moveDown(dt)
     end
     
 end
