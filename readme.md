@@ -48,3 +48,8 @@ Pong day 3 TODO:
 
 For now we will focus more on the collision detection to limit the object movements. 
 The ball and the pads should adhere the collision limitations.
+
+There is one more thing when it comes to class. There is a construct to a class object written in Lua.
+Recommend to try this here is the [link to the file in GitHub](https://github.com/m00racle/hump/blob/master/class.lua). 
+[ ] Just copy this class and use it into new file called class and then include it into main.lua
+[ ] Then modify all classes to use this construct.
