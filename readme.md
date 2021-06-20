@@ -53,3 +53,16 @@ There is one more thing when it comes to class. There is a construct to a class 
 Recommend to try this here is the [link to the file in GitHub](https://github.com/m00racle/hump/blob/master/class.lua). 
 [ ] Just copy this class and use it into new file called class and then include it into main.lua
 [ ] Then modify all classes to use this construct.
+
+## Add Class Library
+This is the new branch for testing the class module file. Here it the [link to the forked repo](https://github.com/m00racle/hump).
+
+TODO LIST:
+
+[ ] add class.lua file to include the class module
+
+[ ] test to implement the class module for pad class. 
+
+[ ] As this will have different implementation it is better to make different pad.lua class.
+
+[ ] Read the class module implementation from [this link hump.class docs](https://hump.readthedocs.io/en/latest/class.html)
