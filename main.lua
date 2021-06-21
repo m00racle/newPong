@@ -18,7 +18,7 @@ VIRTUAL_WIDTH = 432
 fontChoice = 'basefont.ttf'
 
 -- require pad as class
-require 'pad'
+require 'pad2'
 -- the specification for the Player's pad:
 PAD_LENGTH = 40
 PAD_THICK = 5
@@ -38,9 +38,9 @@ function love.load()
     largeFont = love.graphics.newFont(fontChoice, 30)
 
     -- initiate player 1
-    player1 = Pad:create(PAD_LENGTH, PAD_THICK, 3, VIRTUAL_HEIGHT/2 - PAD_LENGTH / 2, VIRTUAL_HEIGHT, "line")
+    player1 = Pad(PAD_LENGTH, PAD_THICK, 3, VIRTUAL_HEIGHT/2 - PAD_LENGTH / 2, VIRTUAL_HEIGHT, "line")
     -- initiate player 2
-    player2 = Pad:create(PAD_LENGTH, PAD_THICK, VIRTUAL_WIDTH - 3 - PAD_THICK, VIRTUAL_HEIGHT / 2 - PAD_LENGTH /2, VIRTUAL_HEIGHT, "fill")
+    player2 = Pad(PAD_LENGTH, PAD_THICK, VIRTUAL_WIDTH - 3 - PAD_THICK, VIRTUAL_HEIGHT / 2 - PAD_LENGTH /2, VIRTUAL_HEIGHT, "fill")
 
 end
 

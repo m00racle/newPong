@@ -1,6 +1,12 @@
 # NEW PONG DOCUMENTATION
 This is the documentation for the Pong Project. I decided to move the project documentation here and focus the README.md as the user friendly information on what is this Project is.
 
+## TABLE OF CONTENTS
+1. [Agenda](##-AGENDA)
+1. [Add Class Library](##-Add-Class-Library)
+1. [REAL WINDOW WIDTH AND VIRTUAL WIDTH](##-REAL-WINDOW-WIDTH-AND-VIRTUAL-WIDTH)
+1. [NOTES ON LUA](##-NOTES-ON-LUA)
+
 ## AGENDA
 
 ### Pong Day 2:
@@ -25,14 +31,11 @@ I forgot the website which provided the font true text font (ttf) files but ther
 ~~WARNING: BUG: 
 [x] the player 1 pad only moves upwards no matter the key pressed!!~~
 
-Pong day 3 TODO:
-[x] learn how to make class like object in Lua
-    [ ] I need more time in this part, please refer to this [class making method](http://lua-users.org/wiki/SimpleLuaClasses) and compare should I use class() function.
-    [x] check whether I can have private variable declaration in a class? Nope Lua does not offer privacy [see this documentation](https://www.lua.org/pil/16.4.html)
+### Pong day 3 TODO:
 
-[ ] all the properties and method such as movement of pads and ball must be encapsulated in this class.
+[x] all the properties and method such as movement of pads and ball must be encapsulated in this class.
 
-[ ] make the pads movement limited to the screen sizes
+[x] make the pads movement limited to the screen sizes
 
 [ ] make the ball move
 
@@ -51,17 +54,22 @@ Recommend to try this here is the [link to the file in GitHub](https://github.co
 [ ] Then modify all classes to use this construct.
 
 ## Add Class Library
+**__NOTE: LUA AS PROGRAMMING LANGUAGE BY DEFAULT DOES NOT PROVIDE CLASS AS STRUCTURE, BUT WE CAN MAKE ONE CLOSELY  RESEMBLES CLASS BEHAVIOR EVEN ITS INHERITANCE NATURE__**
+
+[x] learn how to make class like object in Lua
+    [ ] I need more time in this part, please refer to this [class making method](http://lua-users.org/wiki/SimpleLuaClasses) and compare should I use class() function.
+    [x] check whether I can have private variable declaration in a class? Nope Lua does not offer privacy [see this documentation](https://www.lua.org/pil/16.4.html)
 This is the new branch for testing the class module file. Here it the [link to the forked repo](https://github.com/m00racle/hump).
 
-TODO LIST:
+~~ LIST:~~
 
 [x] add class.lua file to include the class module
 
-[ ] test to implement the class module for pad class. 
+[x] test to implement the class module for pad class. 
 
-[ ] As this will have different implementation it is better to make different pad.lua class.
+[x] As this will have different implementation it is better to make different pad.lua class.
 
-[ ] Read the class module implementation from [this link hump.class docs](https://hump.readthedocs.io/en/latest/class.html)
+[x] Read the class module implementation from [this link hump.class docs](https://hump.readthedocs.io/en/latest/class.html)
 
 ## REAL WINDOW WIDTH AND VIRTUAL WIDTH
 Here I can make the virtual screen size using the [Ulydev push libs](https://github.com/Ulydev/push). (learn this more I guess). This is one thing to know that the Windows sizes (WINDOW_HEIGHT and WINDOW_WIDTH) are the size of the apps window according to the PC display.

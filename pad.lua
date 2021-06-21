@@ -1,4 +1,5 @@
 -- this is the file specific to model players' Pads.
+-- NOTE: THIS IS DEPRECATED BY THE pad2.lua MODULE WITH CLASS MODULE 
 
 -- Pads 
 -- size, thickness and length
