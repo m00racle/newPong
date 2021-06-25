@@ -37,11 +37,13 @@ I forgot the website which provided the font true text font (ttf) files but ther
 
 [x] make the pads movement limited to the screen sizes
 
-[ ] make the ball move
+[x] make the ball move randomly in initial launch
 
 [ ] limit ball movement to upper and bottom screen borders
 
 [ ] simulate collision for ball
+
+[ ] formulate the collision effect to the ball direction!!
 
 [x] if possible see the possibility to use the class concept in Lua (by default Lua does not support class) 
 
@@ -51,13 +53,13 @@ The ball and the pads should adhere the collision limitations.
 There is one more thing when it comes to class. There is a construct to a class object written in Lua.
 Recommend to try this here is the [link to the file in GitHub](https://github.com/m00racle/hump/blob/master/class.lua). 
 [x] Just copy this class and use it into new file called class and then include it into main.lua
-[ ] Then modify all classes to use this construct.
+[x] Then modify all classes to use this construct.
 
 ## Add Class Library
 **__NOTE: LUA AS PROGRAMMING LANGUAGE BY DEFAULT DOES NOT PROVIDE CLASS AS STRUCTURE, BUT WE CAN MAKE ONE CLOSELY  RESEMBLES CLASS BEHAVIOR EVEN ITS INHERITANCE NATURE__**
 
 [x] learn how to make class like object in Lua
-    [ ] I need more time in this part, please refer to this [class making method](http://lua-users.org/wiki/SimpleLuaClasses) and compare should I use class() function.
+    [x] I need more time in this part, please refer to this [class making method](http://lua-users.org/wiki/SimpleLuaClasses) and compare should I use class() function.
     [x] check whether I can have private variable declaration in a class? Nope Lua does not offer privacy [see this documentation](https://www.lua.org/pil/16.4.html)
 This is the new branch for testing the class module file. Here it the [link to the forked repo](https://github.com/m00racle/hump).
 
