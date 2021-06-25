@@ -15,7 +15,7 @@ Ball = Class{
         self.maxY = maxY
         -- now for the preset properties
         self.speed = 100
-        self.direction = 0
+        self.direction = math.pi*7/6
     end
 }
 
@@ -37,7 +37,11 @@ end
 
 
 -- function move
-
+function Ball:move(dt)
+    -- this is basic movement testing direction bearing.
+    self.posX = self.posX + dt*self.speed*math.cos(self.direction)
+    self.posY = self.posY + dt*self.speed*math.sin(self.direction)
+end
 
 
 -- function destroy

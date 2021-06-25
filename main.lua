@@ -72,7 +72,7 @@ function love.draw()
 
     -- print the welcome text
     -- position it in the middle as close as possible 
-    
+
     -- TODO: RESTORE THIS TITLE IN THE MIDDLE OF THE PONG FIELD WHEN TESTING IS OVER
     -- love.graphics.printf('HELLO NEW PONG', 0, VIRTUAL_HEIGHT/2 - 8, VIRTUAL_WIDTH, "center")
     
@@ -82,10 +82,6 @@ function love.draw()
     -- I want to use bigger font for this:
     love.graphics.setFont(largeFont)
     love.graphics.printf("0 - 0", 0, 0, VIRTUAL_WIDTH, 'center')
-
-    -- rendering the ball
-    -- the ball will be rendered as circle
-    love.graphics.circle('fill', VIRTUAL_WIDTH/2 - 3, VIRTUAL_HEIGHT/2 -3, 3)
 
     -- render the player 1 pad
     -- the pad ia a rectangle 
@@ -102,6 +98,8 @@ function love.draw()
 end
 
 function love.update(dt)
+    -- TODO: TESTING BALL MOVEMENTS
+    ball:move(dt)
     -- the key interaction for user inputs
     
     -- this is player 1 part
