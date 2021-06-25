@@ -19,9 +19,13 @@ fontChoice = 'basefont.ttf'
 
 -- require pad as class
 require 'pad2'
+require 'ball'
 -- the specification for the Player's pad:
 PAD_LENGTH = 40
 PAD_THICK = 5
+
+-- Ball specification 
+BALL_RADIUS = 3
 
 --load the initial settings.
 function love.load()
@@ -41,6 +45,9 @@ function love.load()
     player1 = Pad(PAD_LENGTH, PAD_THICK, 3, VIRTUAL_HEIGHT/2 - PAD_LENGTH / 2, VIRTUAL_HEIGHT, "line")
     -- initiate player 2
     player2 = Pad(PAD_LENGTH, PAD_THICK, VIRTUAL_WIDTH - 3 - PAD_THICK, VIRTUAL_HEIGHT / 2 - PAD_LENGTH /2, VIRTUAL_HEIGHT, "fill")
+
+    -- initiate ball
+    ball = Ball(BALL_RADIUS, VIRTUAL_WIDTH/2 - BALL_RADIUS, VIRTUAL_HEIGHT/2 - BALL_RADIUS)
 
 end
 
@@ -65,8 +72,9 @@ function love.draw()
 
     -- print the welcome text
     -- position it in the middle as close as possible 
-
-    love.graphics.printf('HELLO NEW PONG', 0, VIRTUAL_HEIGHT/2 - 8, VIRTUAL_WIDTH, "center")
+    
+    -- TODO: RESTORE THIS TITLE IN THE MIDDLE OF THE PONG FIELD WHEN TESTING IS OVER
+    -- love.graphics.printf('HELLO NEW PONG', 0, VIRTUAL_HEIGHT/2 - 8, VIRTUAL_WIDTH, "center")
     
     --NOTE: ALIGNMENT IS BASED ON THE WHOLE WIDTH OF THE WINDOW, THUS WE SET x = 0 NOT VIRTUAL_WIDTH/2
 
@@ -85,6 +93,9 @@ function love.draw()
 
     -- render the pad for player 2
     player2:render()
+
+    -- render the ball
+    ball:render()
 
     -- end the rendering process by push lib
     push:apply('end')
