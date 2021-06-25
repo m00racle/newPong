@@ -15,7 +15,7 @@ Ball = Class{
         self.maxY = maxY
         -- now for the preset properties
         self.speed = 100
-        self.direction = math.pi*7/6
+        self.direction = math.random(0, math.pi*2)
     end
 }
 
