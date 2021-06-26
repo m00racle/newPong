@@ -8,6 +8,8 @@ This is the documentation for the Pong Project. I decided to move the project do
 1. [NOTES ON LUA](##-NOTES-ON-LUA)
 
 ## AGENDA
+BIG TODO: [DOWNLOAD THIS CS50 GAME CODE](http://cdn.cs50.net/games/2018/spring/lectures/0/src0.zip)
+BIG TODO: [SEE THE VIDEO LINK OF CS50 GAMING](https://cs50.harvard.edu/games/2018/weeks/0/)
 
 ### Pong Day 2:
 
