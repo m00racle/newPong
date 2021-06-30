@@ -4,11 +4,31 @@
 \date{30-05-2021}
 
 \usepackage{geometry}
+\usepackage{color}
+\definecolor{light-grey}{rgb}{.9,.9,.9}
 \usepackage{amsmath}
 \usepackage{graphicx}
 \graphicspath{ {./images/} }
 \usepackage{hyperref}
 \usepackage{listings}
+\lstset{ % General setup for the package
+    language=Python,
+    backgroundcolor=\color{light-grey},
+    basicstyle=\small\ttfamily,
+    numbers=left,
+     numberstyle=\tiny,
+    frame=tb,
+    tabsize=4,
+    columns=fullflexible,
+    breaklines=true,
+    postbreak=\mbox{\textcolor{red}{$\hookrightarrow$}\space},
+    showstringspaces=false,
+    showtabs=false,
+    keepspaces,
+    commentstyle=\color{red},
+    keywordstyle=\color{blue}
+}
+
 
 \begin{document}
     \maketitle
@@ -30,4 +50,48 @@
     We can start from \href{https://www.lua.org/pil/contents.html#16}{the content of the Object Oriented Programming docs}.
     From there we can follow the link that specific talking about classes. 
     For simplicity sake I will put the link the \href{https://www.lua.org/pil/16.1.html}{Classes official documentation page}.
+
+    There is also one more source in GitHub which looks like making a construct of a Lua class. Here is the \href{https://github.com/jonstoler/class.lua}{link to the repo}. 
+    I think this might be a good chance to learn more about how the data structure of Lua and in this case used by Love2D really works.
+
+    \subsection{Learning Classes from Lua Official Docs}
+    Lua does not have a concept of class as part of its programming language. However, like JavaScript, Lua is a prototype based language. 
+    Meaning the mold (prototype) is just an object like any other object in the code. 
+    Class is separate entity hence to use it must be instantiated. Prototype on the other hand is just an object like any other which also subject of changes and implementation.
+
+    The class emulator is basically a table. Reminder: table is the only data structure available in Lua.
+    Table is more like a Python dictionary but in table all components are in index. Thus you can call an object in the table using its key and/or its index.
+    \begin{lstlisting}
+
+        Account = {}
+        Account.__index = Account
+
+        function Account:create(balance)
+        local acnt = {}
+        setmetatable(acnt, Account)
+        acnt.balance = balance
+        return acnt
+        end
+
+        function Account:deposit(amount)
+        self.balance = self.balance + amount
+        end
+
+        function Account:getBalance()
+        return self.balance
+        end
+
+        --test create Account
+        bill = Account:create(1000)
+        print (bill:getBalance())
+        bill:deposit(5000)
+        print (bill.balance)
+        -- test consistency
+        sec = Account:create(55)
+        print (sec)
+        print (bill.balance)
+    \end{lstlisting}
+    WARNING: the variable inside the class object is all public. I can just access the balance of the bill and sec account just by calling the direct variable name in the table. 
+    Moreover I can just change the value of the variable without ever using setter method!
+    
 \end{document}

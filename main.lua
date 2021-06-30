@@ -17,10 +17,15 @@ VIRTUAL_WIDTH = 432
 -- setting font 
 fontChoice = 'basefont.ttf'
 
--- the speed of movement of the pads:
--- for now we make it constant
-FRAME_SPEED = 100
+-- require pad as class
+require 'pad2'
+require 'ball'
+-- the specification for the Player's pad:
+PAD_LENGTH = 40
+PAD_THICK = 5
 
+-- Ball specification 
+BALL_RADIUS = 3
 
 --load the initial settings.
 function love.load()
@@ -36,17 +41,14 @@ function love.load()
     smallFont = love.graphics.newFont(fontChoice, 8)
     largeFont = love.graphics.newFont(fontChoice, 30)
 
-    -- the specification for the Player's pad:
-    PAD_LENGTH = 40
-    PAD_THICK = 5
+    -- initiate player 1
+    player1 = Pad(PAD_LENGTH, PAD_THICK, 3, VIRTUAL_HEIGHT/2 - PAD_LENGTH / 2, VIRTUAL_HEIGHT, "line")
+    -- initiate player 2
+    player2 = Pad(PAD_LENGTH, PAD_THICK, VIRTUAL_WIDTH - 3 - PAD_THICK, VIRTUAL_HEIGHT / 2 - PAD_LENGTH /2, VIRTUAL_HEIGHT, "fill")
 
-    -- position of the pad for player 1
-    player1X = 3
-    player1Y = VIRTUAL_HEIGHT/2 - PAD_LENGTH / 2
+    -- initiate ball
+    ball = Ball(BALL_RADIUS, VIRTUAL_WIDTH/2 - BALL_RADIUS, VIRTUAL_HEIGHT/2 - BALL_RADIUS, VIRTUAL_WIDTH, VIRTUAL_HEIGHT)
 
-    -- position of the pad for player 2
-    player2X = VIRTUAL_WIDTH - 3 - PAD_THICK
-    player2Y = VIRTUAL_HEIGHT / 2 - PAD_LENGTH /2
 end
 
 --I want to make the apps quit when the user hit the escape key
@@ -71,7 +73,8 @@ function love.draw()
     -- print the welcome text
     -- position it in the middle as close as possible 
 
-    love.graphics.printf('HELLO NEW PONG', 0, VIRTUAL_HEIGHT/2 - 8, VIRTUAL_WIDTH, 'center')
+    -- TODO: RESTORE THIS TITLE IN THE MIDDLE OF THE PONG FIELD WHEN TESTING IS OVER
+    -- love.graphics.printf('HELLO NEW PONG', 0, VIRTUAL_HEIGHT/2 - 8, VIRTUAL_WIDTH, "center")
     
     --NOTE: ALIGNMENT IS BASED ON THE WHOLE WIDTH OF THE WINDOW, THUS WE SET x = 0 NOT VIRTUAL_WIDTH/2
 
@@ -80,44 +83,45 @@ function love.draw()
     love.graphics.setFont(largeFont)
     love.graphics.printf("0 - 0", 0, 0, VIRTUAL_WIDTH, 'center')
 
-    -- rendering the ball
-    -- the ball will be rendered as circle
-    love.graphics.circle('fill', VIRTUAL_WIDTH/2 - 3, VIRTUAL_HEIGHT/2 -3, 3)
-
-    -- make the player 1 pad
+    -- render the player 1 pad
     -- the pad ia a rectangle 
-    love.graphics.rectangle("line", player1X, player1Y , PAD_THICK, PAD_LENGTH)
+    player1:render()
 
-    -- makt the pad for player 2
-    love.graphics.rectangle("fill", player2X, player2Y, PAD_THICK, PAD_LENGTH)
+    -- render the pad for player 2
+    player2:render()
+
+    -- render the ball
+    ball:render()
 
     -- end the rendering process by push lib
     push:apply('end')
 end
 
 function love.update(dt)
+    -- TODO: TESTING BALL MOVEMENTS
+    ball:move(dt)
     -- the key interaction for user inputs
     
     -- this is player 1 part
     if love.keyboard.isDown("w") then
         -- move the player 1 pad upwards
-        player1Y = player1Y - dt * FRAME_SPEED
+        player1:moveUp(dt)
     end
     
     if love.keyboard.isDown('s') then
         -- move the player 1 pad downward
-        player1Y = player1Y + dt * FRAME_SPEED
+        player1:moveDown(dt)
     end
 
     -- this is part for the player 2
     if love.keyboard.isDown('up') then 
         -- move the player 2 pad upward
-        player2Y = player2Y - dt * FRAME_SPEED
+        player2:moveUp(dt)
     end
 
     if love.keyboard.isDown('down') then 
         -- move the player 2 pad downward
-        player2Y = player2Y + dt * FRAME_SPEED
+        player2:moveDown(dt)
     end
     
 end
