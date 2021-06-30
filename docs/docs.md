@@ -41,11 +41,11 @@ I forgot the website which provided the font true text font (ttf) files but ther
 
 [x] make the ball move randomly in initial launch
 
-[ ] limit ball movement to upper and bottom screen borders
+[x] limit ball movement to upper and bottom screen borders
 
-[ ] simulate collision for ball
+[x] simulate collision for ball
 
-[ ] formulate the collision effect to the ball direction!!
+[x] formulate the collision effect to the ball direction!!
 
 [x] if possible see the possibility to use the class concept in Lua (by default Lua does not support class) 
 
@@ -56,6 +56,13 @@ There is one more thing when it comes to class. There is a construct to a class 
 Recommend to try this here is the [link to the file in GitHub](https://github.com/m00racle/hump/blob/master/class.lua). 
 [x] Just copy this class and use it into new file called class and then include it into main.lua
 [x] Then modify all classes to use this construct.
+
+### Pong Day 4
+Seek the [SEE THE VIDEO LINK OF CS50 GAMING](https://cs50.harvard.edu/games/2018/weeks/0/) and compare the technique use there with ours.
+[ ] compare ball simulation class
+[ ] compare collision simulation 
+[ ] upgrade our code on pad and ball if necessary but focus on our own ideas
+
 
 ## Add Class Library
 **__NOTE: LUA AS PROGRAMMING LANGUAGE BY DEFAULT DOES NOT PROVIDE CLASS AS STRUCTURE, BUT WE CAN MAKE ONE CLOSELY  RESEMBLES CLASS BEHAVIOR EVEN ITS INHERITANCE NATURE__**
@@ -86,3 +93,8 @@ The function of the Ulydec push libs is to adjust the resolution inside the apps
 Note to self: Lua function does not support parameter assignment and thus no default function parameter values. 
 So simple a Lua programming language is it has no fancy features even on its syntatic function feature. I just have to live with it. 
 One thing I must remember is to always read the documentation because the sequence of the parameter values inputs are important!
+
+NOTE: When add arguments to the Lua fucntion parameters we cannot use direct assignment such as function(param1 = arg1, param3=arg3). 
+Instead we can only put it in order of the parameters are specified in function specification. 
+Those parameters that left behind will be set having the value of **nil** (null).
+
