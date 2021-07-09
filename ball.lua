@@ -24,11 +24,12 @@ Ball = Class{
 function Ball:render()
     love.graphics.circle("fill", self.posX, self.posY, self.radius)
 end
--- function isCollided
+-- TODO: function isCollidewithPad(Player)
 -- detect if the ball object is colliding
--- if yes return true (for now)
+-- if yes return true (for now) and process its effect on the ball direction.
 
 -- function collideWithWall
+-- TODO: refactor rename this function to make this function to collideWithWall
 function Ball:collide()
     print('posY:')
     print(self.posY)
@@ -69,4 +70,5 @@ function Ball:move(dt)
 end
 
 
--- function destroy
+-- function reset TODO
+-- move the ball to its original position!

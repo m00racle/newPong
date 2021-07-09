@@ -49,10 +49,14 @@ function love.load()
     -- initiate ball
     ball = Ball(BALL_RADIUS, VIRTUAL_WIDTH/2 - BALL_RADIUS, VIRTUAL_HEIGHT/2 - BALL_RADIUS, VIRTUAL_WIDTH, VIRTUAL_HEIGHT)
 
+    -- TODO: initiate gamestate variable and set it to 'start' this is the beginning of the game
+
 end
 
 --I want to make the apps quit when the user hit the escape key
 function love.keypressed(key)
+    -- TODO: put the gamestate to put the game into its play or start (use spacebar or enter/return key)
+    
     if key == 'escape' then
         --escape means quit the window
         love.event.quit()
@@ -69,14 +73,6 @@ function love.draw()
 
     -- set the font to the new font ():
     love.graphics.setFont(smallFont)
-
-    -- print the welcome text
-    -- position it in the middle as close as possible 
-
-    -- TODO: RESTORE THIS TITLE IN THE MIDDLE OF THE PONG FIELD WHEN TESTING IS OVER
-    -- love.graphics.printf('HELLO NEW PONG', 0, VIRTUAL_HEIGHT/2 - 8, VIRTUAL_WIDTH, "center")
-    
-    --NOTE: ALIGNMENT IS BASED ON THE WHOLE WIDTH OF THE WINDOW, THUS WE SET x = 0 NOT VIRTUAL_WIDTH/2
 
     --printing the score 
     -- I want to use bigger font for this:
@@ -98,7 +94,9 @@ function love.draw()
 end
 
 function love.update(dt)
-    -- TODO: TESTING BALL MOVEMENTS
+    -- TODO: set gamestate to 'play' to make the update function then all the game feature is on
+
+    -- : TESTING BALL MOVEMENTS
     ball:move(dt)
     -- the key interaction for user inputs
     

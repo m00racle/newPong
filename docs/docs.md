@@ -8,8 +8,9 @@ This is the documentation for the Pong Project. I decided to move the project do
 1. [NOTES ON LUA](##-NOTES-ON-LUA)
 
 ## AGENDA
-BIG TODO: [DOWNLOAD THIS CS50 GAME CODE](http://cdn.cs50.net/games/2018/spring/lectures/0/src0.zip)
-BIG TODO: [SEE THE VIDEO LINK OF CS50 GAMING](https://cs50.harvard.edu/games/2018/weeks/0/)
+~~BIG : [DOWNLOAD THIS CS50 GAME CODE](http://cdn.cs50.net/games/2018/spring/lectures/0/src0.zip)~~
+
+~~BIG: [SEE THE VIDEO LINK OF CS50 GAMING](https://cs50.harvard.edu/games/2018/weeks/0/)~~
 
 ### Pong Day 2:
 
@@ -33,7 +34,7 @@ I forgot the website which provided the font true text font (ttf) files but ther
 ~~WARNING: BUG: 
 [x] the player 1 pad only moves upwards no matter the key pressed!!~~
 
-### Pong day 3 TODO:
+### Pong day 3 :
 
 [x] all the properties and method such as movement of pads and ball must be encapsulated in this class.
 
@@ -54,14 +55,28 @@ The ball and the pads should adhere the collision limitations.
 
 There is one more thing when it comes to class. There is a construct to a class object written in Lua.
 Recommend to try this here is the [link to the file in GitHub](https://github.com/m00racle/hump/blob/master/class.lua). 
+
 [x] Just copy this class and use it into new file called class and then include it into main.lua
+
 [x] Then modify all classes to use this construct.
 
 ### Pong Day 4
 Seek the [SEE THE VIDEO LINK OF CS50 GAMING](https://cs50.harvard.edu/games/2018/weeks/0/) and compare the technique use there with ours.
-[ ] compare ball simulation class
-[ ] compare collision simulation 
-[ ] upgrade our code on pad and ball if necessary but focus on our own ideas
+
+TODO:
+
+[x] compare ball simulation class
+
+[ ] TODO: compare and make collision simulation between the ball and pads. 
+
+[ ] TODO: upgrade our code on pad and ball if necessary but focus on our own ideas
+
+[ ] TODO: make reset ball function to move the ball back to the middle if the ball is out of the field
+
+[ ] TODO: upgrade the main.lua to equipt with game state: start, play read pong/pong-7/main.lua
+
+    - this is to make the game in pause and play condition.
+    - I think this will be a good point to use the title to be shown/rendered during pause and hidden during play.
 
 
 ## Add Class Library
