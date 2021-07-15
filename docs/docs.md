@@ -73,7 +73,7 @@ TODO:
 
 [ ] TODO: make reset ball function to move the ball back to the middle if the ball is out of the field
 
-[ ] TODO: upgrade the main.lua to equipt with game state: start, play read pong/pong-7/main.lua
+[x] TODO: upgrade the main.lua to equipt with game state: start, play read pong/pong-7/main.lua
 
     - this is to make the game in pause and play condition.
     - I think this will be a good point to use the title to be shown/rendered during pause and hidden during play.
