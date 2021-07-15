@@ -6,7 +6,6 @@ Class = require 'class'
 -- creates ball with size (if it can be radius of circle good)
 -- if not I will just make it as rectangle with small size
 -- the maxX and maxY of the position.
--- I dont think the maxX is not needed since it will just go out the screen if does not meet any pad.
 Ball = Class{
     init = function(self, radius, posX, posY, maxX, maxY)
         self.radius = radius
@@ -17,6 +16,7 @@ Ball = Class{
         -- now for the preset properties
         self.speed = 100
         self.direction = math.random(0, math.pi*2)
+        -- direction is clockwise according to the positive x axis line as 0 degree.
     end
 }
 
@@ -24,14 +24,15 @@ Ball = Class{
 function Ball:render()
     love.graphics.circle("fill", self.posX, self.posY, self.radius)
 end
--- function isCollided
--- detect if the ball object is colliding
--- if yes return true (for now)
+-- TODO: function isCollidewithPad(Player)
+
+-- if yes return true (for now) and process its effect on the ball direction.
 
 -- function collideWithWall
-function Ball:collide()
-    print('posY:')
-    print(self.posY)
+-- TODO: refactor rename this function to make this function to collideWithWall
+function Ball:collideWithWall()
+    -- print('posY:')
+    -- print(self.posY)
     if(self.posY <= 0 or self.posY >= self.maxY)
     then
         if(self.direction > 0 and self.direction < math.pi/2)
@@ -51,22 +52,46 @@ function Ball:collide()
     end
 end
 
--- I think this is the 
+-- function get position of the ball
+function Ball:getPosX()
+    -- function to get the x coordinate of the ball
+    return self.posX 
+end
 
--- function collideWithPad
+function Ball:getPosY()
+    -- function to get the y coordinate of the ball
+    return self.posY
+end
 
+function Ball:collideWithPad()
+    -- change the direction when colliding with pad
+    if self.posX > self.maxX/2 then
+        -- this collide with player 2
+        self.direction = math.random(math.pi/2, math.pi/2*3)
+    else
+        -- this collide with player 1
+        -- direction is deflected between 3/2 pi to pi/2 
+        -- thus means - pi
+        self.direction = math.random(math.pi/2, math.pi/2*3) - math.pi
+    end
+end
 
 -- function reset
+function reset()
+    -- reset the ball position to the middle of the screen
+    -- TODO: make the ball return to the middle of the screen 
+end
 
 
 -- function move
 function Ball:move(dt)
     -- test if ball collide
-    self.direction = self:collide()
+    self.direction = self:collideWithWall()
     -- this is basic movement testing direction bearing.
     self.posX = self.posX + dt*self.speed*math.cos(self.direction)
     self.posY = self.posY + dt*self.speed*math.sin(self.direction)
 end
 
 
--- function destroy
+-- function reset TODO
+-- move the ball to its original position!

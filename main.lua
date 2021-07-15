@@ -42,22 +42,32 @@ function love.load()
     largeFont = love.graphics.newFont(fontChoice, 30)
 
     -- initiate player 1
-    player1 = Pad(PAD_LENGTH, PAD_THICK, 3, VIRTUAL_HEIGHT/2 - PAD_LENGTH / 2, VIRTUAL_HEIGHT, "line")
+    player1 = Pad(PAD_LENGTH, PAD_THICK, 3, VIRTUAL_HEIGHT/2 - PAD_LENGTH / 2, VIRTUAL_WIDTH, VIRTUAL_HEIGHT, "line")
     -- initiate player 2
-    player2 = Pad(PAD_LENGTH, PAD_THICK, VIRTUAL_WIDTH - 3 - PAD_THICK, VIRTUAL_HEIGHT / 2 - PAD_LENGTH /2, VIRTUAL_HEIGHT, "fill")
+    player2 = Pad(PAD_LENGTH, PAD_THICK, VIRTUAL_WIDTH - 3 - PAD_THICK, VIRTUAL_HEIGHT / 2 - PAD_LENGTH /2, VIRTUAL_WIDTH, VIRTUAL_HEIGHT, "fill")
 
     -- initiate ball
     ball = Ball(BALL_RADIUS, VIRTUAL_WIDTH/2 - BALL_RADIUS, VIRTUAL_HEIGHT/2 - BALL_RADIUS, VIRTUAL_WIDTH, VIRTUAL_HEIGHT)
 
+    -- : initiate gamestate variable and set it to 'start' this is the beginning of the game
+    gameState = 'start'
 end
 
 --I want to make the apps quit when the user hit the escape key
 function love.keypressed(key)
+    -- : put the gamestate to put the game into its play or start (use spacebar or enter/return key)
+    
     if key == 'escape' then
         --escape means quit the window
         love.event.quit()
     end
-
+    if key == 'enter' or key == 'return' then
+        if gameState == 'start' then
+            gameState = 'play'
+        else
+            gameState = 'start'
+        end
+    end
 end
 
 function love.draw()
@@ -70,58 +80,75 @@ function love.draw()
     -- set the font to the new font ():
     love.graphics.setFont(smallFont)
 
-    -- print the welcome text
-    -- position it in the middle as close as possible 
-
-    -- TODO: RESTORE THIS TITLE IN THE MIDDLE OF THE PONG FIELD WHEN TESTING IS OVER
-    -- love.graphics.printf('HELLO NEW PONG', 0, VIRTUAL_HEIGHT/2 - 8, VIRTUAL_WIDTH, "center")
-    
-    --NOTE: ALIGNMENT IS BASED ON THE WHOLE WIDTH OF THE WINDOW, THUS WE SET x = 0 NOT VIRTUAL_WIDTH/2
-
     --printing the score 
     -- I want to use bigger font for this:
     love.graphics.setFont(largeFont)
     love.graphics.printf("0 - 0", 0, 0, VIRTUAL_WIDTH, 'center')
 
-    -- render the player 1 pad
-    -- the pad ia a rectangle 
-    player1:render()
+    if gameState == 'play' then
+        -- show the ball and pads: 
+        -- render the player 1 pad
+        -- the pad ia a rectangle 
+        player1:render()
 
-    -- render the pad for player 2
-    player2:render()
+        -- render the pad for player 2
+        player2:render()
 
-    -- render the ball
-    ball:render()
-
+        -- render the ball
+        ball:render()
+    end
+    
     -- end the rendering process by push lib
     push:apply('end')
 end
 
 function love.update(dt)
-    -- TODO: TESTING BALL MOVEMENTS
-    ball:move(dt)
-    -- the key interaction for user inputs
-    
-    -- this is player 1 part
-    if love.keyboard.isDown("w") then
-        -- move the player 1 pad upwards
-        player1:moveUp(dt)
-    end
-    
-    if love.keyboard.isDown('s') then
-        -- move the player 1 pad downward
-        player1:moveDown(dt)
-    end
+    -- : set gamestate to 'play' to make the update function then all the game feature is on
+    if gameState == 'play' then
+        -- testing pad collide to pad
+        if isCollide(player1, ball) or isCollide(player2, ball) then
+            -- ball collide with pad then need to be deflected
+            ball:collideWithPad()
+        end
+        
+        ball:move(dt)
+        -- the key interaction for user inputs
+        -- this is player 1 part
+        if love.keyboard.isDown("w") then
+            -- move the player 1 pad upwards
+            player1:moveUp(dt)
+        end
+        
+        if love.keyboard.isDown('s') then
+            -- move the player 1 pad downward
+            player1:moveDown(dt)
+        end
 
-    -- this is part for the player 2
-    if love.keyboard.isDown('up') then 
-        -- move the player 2 pad upward
-        player2:moveUp(dt)
-    end
+        -- this is part for the player 2
+        if love.keyboard.isDown('up') then 
+            -- move the player 2 pad upward
+            player2:moveUp(dt)
+        end
 
-    if love.keyboard.isDown('down') then 
-        -- move the player 2 pad downward
-        player2:moveDown(dt)
+        if love.keyboard.isDown('down') then 
+            -- move the player 2 pad downward
+            player2:moveDown(dt)
+        end
     end
     
+end
+
+function isCollide(pad, ball)
+    -- detect if ball is colliding with the pad
+    -- pad coordinate data
+    padX0 = pad:getPosX0()
+    padX1 = pad:getPosX1()
+    padY0 = pad:getPosY0()
+    padY1 = pad:getPosY1()
+
+    -- the ball coordinate data
+    ballX = ball:getPosX()
+    ballY = ball:getPosY()
+
+    return (ballX >= padX0 and ballX <= padX1 and ballY >= padY0 and ballY <= padY1)
 end

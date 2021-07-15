@@ -8,8 +8,9 @@ This is the documentation for the Pong Project. I decided to move the project do
 1. [NOTES ON LUA](##-NOTES-ON-LUA)
 
 ## AGENDA
-BIG TODO: [DOWNLOAD THIS CS50 GAME CODE](http://cdn.cs50.net/games/2018/spring/lectures/0/src0.zip)
-BIG TODO: [SEE THE VIDEO LINK OF CS50 GAMING](https://cs50.harvard.edu/games/2018/weeks/0/)
+~~BIG : [DOWNLOAD THIS CS50 GAME CODE](http://cdn.cs50.net/games/2018/spring/lectures/0/src0.zip)~~
+
+~~BIG: [SEE THE VIDEO LINK OF CS50 GAMING](https://cs50.harvard.edu/games/2018/weeks/0/)~~
 
 ### Pong Day 2:
 
@@ -33,7 +34,7 @@ I forgot the website which provided the font true text font (ttf) files but ther
 ~~WARNING: BUG: 
 [x] the player 1 pad only moves upwards no matter the key pressed!!~~
 
-### Pong day 3 TODO:
+### Pong day 3 :
 
 [x] all the properties and method such as movement of pads and ball must be encapsulated in this class.
 
@@ -54,7 +55,9 @@ The ball and the pads should adhere the collision limitations.
 
 There is one more thing when it comes to class. There is a construct to a class object written in Lua.
 Recommend to try this here is the [link to the file in GitHub](https://github.com/m00racle/hump/blob/master/class.lua). 
+
 [x] Just copy this class and use it into new file called class and then include it into main.lua
+
 [x] Then modify all classes to use this construct.
 
 ### Pong Day 4
@@ -63,7 +66,7 @@ Seek the [SEE THE VIDEO LINK OF CS50 GAMING](https://cs50.harvard.edu/games/2018
 ### Pong Day 4
 Seek the [SEE THE VIDEO LINK OF CS50 GAMING](https://cs50.harvard.edu/games/2018/weeks/0/) and compare the technique use there with ours.
 
-TODO:
+:
 
 [x] compare ball simulation class
 
@@ -123,4 +126,3 @@ One thing I must remember is to always read the documentation because the sequen
 NOTE: When add arguments to the Lua fucntion parameters we cannot use direct assignment such as function(param1 = arg1, param3=arg3). 
 Instead we can only put it in order of the parameters are specified in function specification. 
 Those parameters that left behind will be set having the value of **nil** (null).
-
