@@ -60,8 +60,23 @@ Recommend to try this here is the [link to the file in GitHub](https://github.co
 ### Pong Day 4
 Seek the [SEE THE VIDEO LINK OF CS50 GAMING](https://cs50.harvard.edu/games/2018/weeks/0/) and compare the technique use there with ours.
 [ ] compare ball simulation class
-[ ] compare collision simulation 
-[ ] upgrade our code on pad and ball if necessary but focus on our own ideas
+### Pong Day 4
+Seek the [SEE THE VIDEO LINK OF CS50 GAMING](https://cs50.harvard.edu/games/2018/weeks/0/) and compare the technique use there with ours.
+
+TODO:
+
+[x] compare ball simulation class
+
+[ ] TODO: compare and make collision simulation between the ball and pads. 
+
+[ ] TODO: upgrade our code on pad and ball if necessary but focus on our own ideas
+
+[ ] TODO: make reset ball function to move the ball back to the middle if the ball is out of the field
+
+[x] TODO: upgrade the main.lua to equipt with game state: start, play read pong/pong-7/main.lua
+
+    - this is to make the game in pause and play condition.
+    - I think this will be a good point to use the title to be shown/rendered during pause and hidden during play.
 
 
 ## Add Class Library
