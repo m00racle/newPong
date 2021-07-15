@@ -42,9 +42,9 @@ function love.load()
     largeFont = love.graphics.newFont(fontChoice, 30)
 
     -- initiate player 1
-    player1 = Pad(PAD_LENGTH, PAD_THICK, 3, VIRTUAL_HEIGHT/2 - PAD_LENGTH / 2, VIRTUAL_HEIGHT, "line")
+    player1 = Pad(PAD_LENGTH, PAD_THICK, 3, VIRTUAL_HEIGHT/2 - PAD_LENGTH / 2, VIRTUAL_WIDTH, VIRTUAL_HEIGHT, "line")
     -- initiate player 2
-    player2 = Pad(PAD_LENGTH, PAD_THICK, VIRTUAL_WIDTH - 3 - PAD_THICK, VIRTUAL_HEIGHT / 2 - PAD_LENGTH /2, VIRTUAL_HEIGHT, "fill")
+    player2 = Pad(PAD_LENGTH, PAD_THICK, VIRTUAL_WIDTH - 3 - PAD_THICK, VIRTUAL_HEIGHT / 2 - PAD_LENGTH /2, VIRTUAL_WIDTH, VIRTUAL_HEIGHT, "fill")
 
     -- initiate ball
     ball = Ball(BALL_RADIUS, VIRTUAL_WIDTH/2 - BALL_RADIUS, VIRTUAL_HEIGHT/2 - BALL_RADIUS, VIRTUAL_WIDTH, VIRTUAL_HEIGHT)
@@ -85,16 +85,19 @@ function love.draw()
     love.graphics.setFont(largeFont)
     love.graphics.printf("0 - 0", 0, 0, VIRTUAL_WIDTH, 'center')
 
-    -- render the player 1 pad
-    -- the pad ia a rectangle 
-    player1:render()
+    if gameState == 'play' then
+        -- show the ball and pads: 
+        -- render the player 1 pad
+        -- the pad ia a rectangle 
+        player1:render()
 
-    -- render the pad for player 2
-    player2:render()
+        -- render the pad for player 2
+        player2:render()
 
-    -- render the ball
-    ball:render()
-
+        -- render the ball
+        ball:render()
+    end
+    
     -- end the rendering process by push lib
     push:apply('end')
 end

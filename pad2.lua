@@ -11,11 +11,12 @@ Class = require 'class'
 --      maxY = the maximum Y postion that a pad can be located.
 
 Pad = Class{
-    init = function(self, length, thickness, posX, posY, maxY, mode)
+    init = function(self, length, thickness, posX, posY, maxX, maxY, mode)
         self.length = length
         self.thickness = thickness
         self.posX = posX
         self.posY = posY
+        self.maxX = maxX
         self.maxY = maxY 
         self.mode = mode
         -- I set the initial speed for each player's pads to 100
