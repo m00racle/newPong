@@ -49,19 +49,25 @@ function love.load()
     -- initiate ball
     ball = Ball(BALL_RADIUS, VIRTUAL_WIDTH/2 - BALL_RADIUS, VIRTUAL_HEIGHT/2 - BALL_RADIUS, VIRTUAL_WIDTH, VIRTUAL_HEIGHT)
 
-    -- TODO: initiate gamestate variable and set it to 'start' this is the beginning of the game
-
+    -- : initiate gamestate variable and set it to 'start' this is the beginning of the game
+    gameState = 'start'
 end
 
 --I want to make the apps quit when the user hit the escape key
 function love.keypressed(key)
-    -- TODO: put the gamestate to put the game into its play or start (use spacebar or enter/return key)
+    -- : put the gamestate to put the game into its play or start (use spacebar or enter/return key)
     
     if key == 'escape' then
         --escape means quit the window
         love.event.quit()
     end
-
+    if key == 'enter' or key == 'return' then
+        if gameState == 'start' then
+            gameState = 'play'
+        else
+            gameState = 'start'
+        end
+    end
 end
 
 function love.draw()
@@ -94,32 +100,32 @@ function love.draw()
 end
 
 function love.update(dt)
-    -- TODO: set gamestate to 'play' to make the update function then all the game feature is on
+    -- : set gamestate to 'play' to make the update function then all the game feature is on
+    if gameState == 'play' then
+        -- : TESTING BALL MOVEMENTS
+        ball:move(dt)
+        -- the key interaction for user inputs
+        -- this is player 1 part
+        if love.keyboard.isDown("w") then
+            -- move the player 1 pad upwards
+            player1:moveUp(dt)
+        end
+        
+        if love.keyboard.isDown('s') then
+            -- move the player 1 pad downward
+            player1:moveDown(dt)
+        end
 
-    -- : TESTING BALL MOVEMENTS
-    ball:move(dt)
-    -- the key interaction for user inputs
-    
-    -- this is player 1 part
-    if love.keyboard.isDown("w") then
-        -- move the player 1 pad upwards
-        player1:moveUp(dt)
-    end
-    
-    if love.keyboard.isDown('s') then
-        -- move the player 1 pad downward
-        player1:moveDown(dt)
-    end
+        -- this is part for the player 2
+        if love.keyboard.isDown('up') then 
+            -- move the player 2 pad upward
+            player2:moveUp(dt)
+        end
 
-    -- this is part for the player 2
-    if love.keyboard.isDown('up') then 
-        -- move the player 2 pad upward
-        player2:moveUp(dt)
-    end
-
-    if love.keyboard.isDown('down') then 
-        -- move the player 2 pad downward
-        player2:moveDown(dt)
+        if love.keyboard.isDown('down') then 
+            -- move the player 2 pad downward
+            player2:moveDown(dt)
+        end
     end
     
 end
