@@ -77,6 +77,10 @@ function Ball:collideWithPad()
 end
 
 -- function reset
+function reset()
+    -- reset the ball position to the middle of the screen
+    -- TODO: make the ball return to the middle of the screen 
+end
 
 
 -- function move
