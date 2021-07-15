@@ -59,7 +59,7 @@ Recommend to try this here is the [link to the file in GitHub](https://github.co
 
 ### Pong Day 4
 Seek the [SEE THE VIDEO LINK OF CS50 GAMING](https://cs50.harvard.edu/games/2018/weeks/0/) and compare the technique use there with ours.
-[ ] compare ball simulation class
+[x] compare ball simulation class
 ### Pong Day 4
 Seek the [SEE THE VIDEO LINK OF CS50 GAMING](https://cs50.harvard.edu/games/2018/weeks/0/) and compare the technique use there with ours.
 
@@ -67,22 +67,28 @@ TODO:
 
 [x] compare ball simulation class
 
-[ ] TODO: compare and make collision simulation between the ball and pads. 
+[x] : compare and make collision simulation between the ball and pads. 
 
-[ ] TODO: add getter for the position of each pad and ball but let it postiton please be creative about it!
+[x] : add getter for the position of each pad and ball but let it postiton please be creative about it!
 
-[x] TODO: upgrade our code on pad and ball if necessary but focus on our own ideas
+[x] : upgrade our code on pad and ball if necessary but focus on our own ideas
 
-[x] TODO: upgrade the main.lua to equipt with game state: start, play read pong/pong-7/main.lua
+[x] : upgrade the main.lua to equipt with game state: start, play read pong/pong-7/main.lua
 
     - this is to make the game in pause and play condition.
     - I think this will be a good point to use the title to be shown/rendered during pause and hidden during play.
 
 ### Pong Day 5
 
-[ ] TODO: when gameState is in 'start' the ball and pad should not be rendered!
+[x] : when gameState is in 'start' the ball and pad should not be rendered!
+
+[ ] TODO: make puse screen render that hide the play (ball and pads)
 
 [ ] TODO: make reset ball function to move the ball back to the middle if the ball is out of the field
+
+[ ] TODO: detect ball is leaving the screen and reset the ball afterwards
+
+[ ] TODO: add detection which player is winning a score when ball is leaving the screen
 
 ## Add Class Library
 **__NOTE: LUA AS PROGRAMMING LANGUAGE BY DEFAULT DOES NOT PROVIDE CLASS AS STRUCTURE, BUT WE CAN MAKE ONE CLOSELY  RESEMBLES CLASS BEHAVIOR EVEN ITS INHERITANCE NATURE__**
