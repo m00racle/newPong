@@ -24,7 +24,31 @@ Pad = Class{
     end
 }
 
--- I choose to use the external function definition since this class will be inside a separate file.
+--     -- function to get position data of each player's pad
+--     -- the position will be a table of x0, x1, y0, and y1
+--     -- the position is the all edges position in the coordinate
+--     -- x0 is the most left , and y0 is the highest most of the
+
+
+function Pad:getPosX0()
+    -- funtion to get x0 coordinate of the pad
+    return self.posX
+end
+
+function Pad:getPosX1()
+    -- fucntion to get the x1 coordinate of the pad
+    return self.posX + self.thickness
+end
+
+function Pad:getPosY0()
+    -- function to get the y0 coordinate position
+    return self.posY
+end
+
+function Pad:getPosY1()
+    -- function to get the y1 coordinate position
+    return self.posY + self.length
+end
 
 -- thePad will have function on render
 --      render will draw the updated properties of the pad.

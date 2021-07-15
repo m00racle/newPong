@@ -105,7 +105,12 @@ end
 function love.update(dt)
     -- : set gamestate to 'play' to make the update function then all the game feature is on
     if gameState == 'play' then
-        -- : TESTING BALL MOVEMENTS
+        -- testing pad collide to pad
+        if isCollide(player1, ball) or isCollide(player2, ball) then
+            -- ball collide with pad then need to be deflected
+            ball:collideWithPad()
+        end
+        
         ball:move(dt)
         -- the key interaction for user inputs
         -- this is player 1 part
@@ -131,4 +136,19 @@ function love.update(dt)
         end
     end
     
+end
+
+function isCollide(pad, ball)
+    -- detect if ball is colliding with the pad
+    -- pad coordinate data
+    padX0 = pad:getPosX0()
+    padX1 = pad:getPosX1()
+    padY0 = pad:getPosY0()
+    padY1 = pad:getPosY1()
+
+    -- the ball coordinate data
+    ballX = ball:getPosX()
+    ballY = ball:getPosY()
+
+    return (ballX >= padX0 and ballX <= padX1 and ballY >= padY0 and ballY <= padY1)
 end
