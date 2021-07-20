@@ -85,13 +85,19 @@ Seek the [SEE THE VIDEO LINK OF CS50 GAMING](https://cs50.harvard.edu/games/2018
 
 [x] : when gameState is in 'start' the ball and pad should not be rendered!
 
-[ ] TODO: make puse screen render that hide the play (ball and pads)
+[x] : make pause screen render that hide the play (ball and pads)
 
-[x] TODO: make reset ball function to move the ball back to the middle if the ball is out of the field
+Here is the screen shot of the pause screen
 
-[x] TODO: detect ball is leaving the screen and reset the ball afterwards
+<img src="https://github.com/m00racle/newPong/blob/master/docs/images/newPong_paused.jpg" alt="screen paused" width="500">
 
-[ ] TODO: add detection which player is winning a score when ball is leaving the screen
+Still need improvement I know but this is a progress. Next I need to re-arrange the game state to more then just start and play to accomodate pause, goals, and also game over!
+
+[x] : make reset ball function to move the ball back to the middle if the ball is out of the field
+
+[x] : detect ball is leaving the screen and reset the ball afterwards
+
+[x] : add detection which player is winning a score when ball is leaving the screen
 
 ## Add Class Library
 **__NOTE: LUA AS PROGRAMMING LANGUAGE BY DEFAULT DOES NOT PROVIDE CLASS AS STRUCTURE, BUT WE CAN MAKE ONE CLOSELY  RESEMBLES CLASS BEHAVIOR EVEN ITS INHERITANCE NATURE__**
