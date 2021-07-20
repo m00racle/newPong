@@ -87,9 +87,9 @@ Seek the [SEE THE VIDEO LINK OF CS50 GAMING](https://cs50.harvard.edu/games/2018
 
 [ ] TODO: make puse screen render that hide the play (ball and pads)
 
-[ ] TODO: make reset ball function to move the ball back to the middle if the ball is out of the field
+[x] TODO: make reset ball function to move the ball back to the middle if the ball is out of the field
 
-[ ] TODO: detect ball is leaving the screen and reset the ball afterwards
+[x] TODO: detect ball is leaving the screen and reset the ball afterwards
 
 [ ] TODO: add detection which player is winning a score when ball is leaving the screen
 
