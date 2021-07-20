@@ -101,13 +101,13 @@ Still need improvement I know but this is a progress. Next I need to re-arrange 
 
 ### Pong Day 6
 
-[ ] Modify score line according to the player goals
+[ ] TODO: Modify score line according to the player goals
 
-[ ] Add more GameState to accomodate start of the game, pause, and players goals
+[ ] TODO: Add more GameState to accomodate start of the game, pause, and players goals
 
-[ ] Add rules to end the game in certain score line and make game over gameState
+[ ] TODO: Add rules to end the game in certain score line and make game over gameState
 
-[ ] Find out how to concatenate string in Lua!
+[ ] TODO: Find out how to concatenate string in Lua!
 
 ## Add Class Library
 **__NOTE: LUA AS PROGRAMMING LANGUAGE BY DEFAULT DOES NOT PROVIDE CLASS AS STRUCTURE, BUT WE CAN MAKE ONE CLOSELY  RESEMBLES CLASS BEHAVIOR EVEN ITS INHERITANCE NATURE__**
