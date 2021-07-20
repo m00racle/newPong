@@ -96,6 +96,9 @@ function love.draw()
 
         -- render the ball
         ball:render()
+    else
+        -- else this will be paused
+        love.graphics.printf("PAUSED", 0, VIRTUAL_HEIGHT/2, VIRTUAL_WIDTH, "center")
     end
     
     -- end the rendering process by push lib
@@ -105,13 +108,31 @@ end
 function love.update(dt)
     -- : set gamestate to 'play' to make the update function then all the game feature is on
     if gameState == 'play' then
+        ball:move(dt)
+
         -- testing pad collide to pad
         if isCollide(player1, ball) or isCollide(player2, ball) then
             -- ball collide with pad then need to be deflected
             ball:collideWithPad()
         end
+
+        -- testing the ball is pass the screen width
+        if player1Goal(ball) then
+            -- reset the ball position
+            ball:reset()
+
+            -- change game state
+            gameState = 'start'
+        end
+
+        if player2Goal(ball) then
+            -- reset the ball position
+            ball:reset()
+
+            -- change game state
+            gameState = 'start'
+        end
         
-        ball:move(dt)
         -- the key interaction for user inputs
         -- this is player 1 part
         if love.keyboard.isDown("w") then
@@ -151,4 +172,14 @@ function isCollide(pad, ball)
     ballY = ball:getPosY()
 
     return (ballX >= padX0 and ballX <= padX1 and ballY >= padY0 and ballY <= padY1)
+end
+
+function player1Goal(ball)
+    -- detect if ball position X pass the max X (Width)
+    return ball:getPosX() > VIRTUAL_WIDTH
+end
+
+function player2Goal(ball)
+    -- detect if ball position X pass the 0 coordinate width
+    return ball:getPosX() < 0
 end

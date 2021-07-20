@@ -24,12 +24,9 @@ Ball = Class{
 function Ball:render()
     love.graphics.circle("fill", self.posX, self.posY, self.radius)
 end
--- TODO: function isCollidewithPad(Player)
-
--- if yes return true (for now) and process its effect on the ball direction.
 
 -- function collideWithWall
--- TODO: refactor rename this function to make this function to collideWithWall
+-- : refactor rename this function to make this function to collideWithWall
 function Ball:collideWithWall()
     -- print('posY:')
     -- print(self.posY)
@@ -77,9 +74,11 @@ function Ball:collideWithPad()
 end
 
 -- function reset
-function reset()
+function Ball:reset()
     -- reset the ball position to the middle of the screen
-    -- TODO: make the ball return to the middle of the screen 
+    -- : make the ball return to the middle of the screen 
+    self.posX = self.maxX /2 - self.radius
+    self.posY = self.maxY /2 - self.radius
 end
 
 
@@ -91,7 +90,3 @@ function Ball:move(dt)
     self.posX = self.posX + dt*self.speed*math.cos(self.direction)
     self.posY = self.posY + dt*self.speed*math.sin(self.direction)
 end
-
-
--- function reset TODO
--- move the ball to its original position!
