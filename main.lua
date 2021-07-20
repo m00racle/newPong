@@ -96,6 +96,9 @@ function love.draw()
 
         -- render the ball
         ball:render()
+    else
+        -- else this will be paused
+        love.graphics.printf("PAUSED", 0, VIRTUAL_HEIGHT/2, VIRTUAL_WIDTH, "center")
     end
     
     -- end the rendering process by push lib
@@ -106,7 +109,7 @@ function love.update(dt)
     -- : set gamestate to 'play' to make the update function then all the game feature is on
     if gameState == 'play' then
         ball:move(dt)
-        
+
         -- testing pad collide to pad
         if isCollide(player1, ball) or isCollide(player2, ball) then
             -- ball collide with pad then need to be deflected
