@@ -102,7 +102,7 @@ function love.draw()
         ball:render()
     else
         -- else this will be paused
-        love.graphics.printf("PAUSED", 0, VIRTUAL_HEIGHT/2, VIRTUAL_WIDTH, "center")
+        pauseScreen()
     end
     
     -- end the rendering process by push lib
@@ -196,4 +196,18 @@ end
 function player2Goal(ball)
     -- detect if ball position X pass the 0 coordinate width
     return ball:getPosX() < 0
+end
+
+-- this is the rendered screen for each game state
+function startScreen()
+    -- this is the draw for gameState=start
+end
+
+function pauseScreen()
+    -- render screen when game state is paused
+    love.graphics.printf("PAUSED", 0, VIRTUAL_HEIGHT/2, VIRTUAL_WIDTH, "center")
+end
+
+function overScreen()
+    -- render screen when game over
 end
