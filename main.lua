@@ -83,7 +83,11 @@ function love.draw()
     --printing the score 
     -- I want to use bigger font for this:
     love.graphics.setFont(largeFont)
-    love.graphics.printf("0 - 0", 0, 0, VIRTUAL_WIDTH, 'center')
+
+    -- print this score board for each player
+    player1Score = player1:getScore()
+    player2Score = player2:getScore()
+    love.graphics.printf(player1Score.." - "..player2Score, 0, 0, VIRTUAL_WIDTH, 'center')
 
     if gameState == 'play' then
         -- show the ball and pads: 
@@ -118,6 +122,11 @@ function love.update(dt)
 
         -- testing the ball is pass the screen width
         if player1Goal(ball) then
+            -- add player1 score by one
+            score = player1:getScore()
+            score = score + 1
+            player1:setScore(score)
+
             -- reset the ball position
             ball:reset()
 
@@ -126,6 +135,11 @@ function love.update(dt)
         end
 
         if player2Goal(ball) then
+            -- add player1 score by one
+            score = player2:getScore()
+            score = score + 1
+            player2:setScore(score)
+
             -- reset the ball position
             ball:reset()
 

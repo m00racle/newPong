@@ -21,6 +21,8 @@ Pad = Class{
         self.mode = mode
         -- I set the initial speed for each player's pads to 100
         self.speed = 100
+        -- initial score
+        self.score = 0
     end
 }
 
@@ -87,3 +89,12 @@ end
 
 -- Pad must be able to reset its position 
 --      If one rounds is already won by one of the player then before the next round begin most likely the pad must be reset to its initial position.
+function Pad:setScore(score)
+    -- set the score if there is changes in the play
+    self.score = score
+end
+
+function Pad:getScore()
+    -- get the score if called by other function
+    return self.score
+end
