@@ -107,9 +107,11 @@ Still need improvement I know but this is a progress. Next I need to re-arrange 
 
 NOTE: the variable to lead the printed player which has goals is not in the best practice since it just directly change local variable.
 
-[ ] TODO: Add rules to end the game in certain score line and make game over gameState
+[x] : Add rules to end the game in certain score line and make game over gameState
 
-[x] TODO: Find out how to concatenate string in Lua! 
+NOTE: the reset call for ball and all players is moved to the function key pressed thus in game over state the score line is still displayed and not yet reseted. For now for testing purposes the MAX_SCORE is set to 3 and will be updated later on.
+
+[x] : Find out how to concatenate string in Lua! 
 
 NOTE: link to documentation on [String concatenation on Lua](https://www.dannyguo.com/blog/how-to-concatenate-strings-in-lua/)
 
