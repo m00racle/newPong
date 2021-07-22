@@ -101,7 +101,7 @@ Still need improvement I know but this is a progress. Next I need to re-arrange 
 
 ### Pong Day 6
 
-[ ] TODO: Modify score line according to the player goals
+[x] : Modify score line according to the player goals
 
 [ ] TODO: Add more GameState to accomodate start of the game, pause, and players goals
 
