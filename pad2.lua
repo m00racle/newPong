@@ -88,7 +88,11 @@ function Pad:moveDown(dY)
 end
 
 -- Pad must be able to reset its position 
---      If one rounds is already won by one of the player then before the next round begin most likely the pad must be reset to its initial position.
+function Pad:reset()
+    -- reset the y pos to center of the screen
+    self.posY = self.maxY / 2 - length / 2
+end
+
 function Pad:setScore(score)
     -- set the score if there is changes in the play
     self.score = score
