@@ -46,6 +46,9 @@ function love.load()
     -- initiate player 2
     player2 = Pad(PAD_LENGTH, PAD_THICK, VIRTUAL_WIDTH - 3 - PAD_THICK, VIRTUAL_HEIGHT / 2 - PAD_LENGTH /2, VIRTUAL_WIDTH, VIRTUAL_HEIGHT, "fill")
 
+    -- initiate player goal to empty string
+    playerGoal = ""
+
     -- initiate ball
     ball = Ball(BALL_RADIUS, VIRTUAL_WIDTH/2 - BALL_RADIUS, VIRTUAL_HEIGHT/2 - BALL_RADIUS, VIRTUAL_WIDTH, VIRTUAL_HEIGHT)
 
@@ -64,8 +67,12 @@ function love.keypressed(key)
     if key == 'enter' or key == 'return' then
         if gameState == 'start' then
             gameState = 'play'
-        else
-            gameState = 'start'
+        elseif gameState == 'play' then
+            gameState = 'pause'
+        elseif gameState == 'pause' then
+            gameState = 'play'
+        elseif gameState == 'goal' then
+            gameState = 'play'
         end
     end
 end
@@ -100,9 +107,16 @@ function love.draw()
 
         -- render the ball
         ball:render()
-    else
+    elseif gameState == 'pause' then
         -- else this will be paused
         pauseScreen()
+
+    elseif gameState == 'start' then 
+        -- this will be start screen
+        startScreen()
+    elseif gameState == 'goal' then
+        -- this will call the latest goal player
+        goalScreen(playerGoal)
     end
     
     -- end the rendering process by push lib
@@ -130,8 +144,11 @@ function love.update(dt)
             -- reset the ball position
             ball:reset()
 
+            -- change palyer goal value
+            playerGoal = 'Player 1'
+
             -- change game state
-            gameState = 'start'
+            gameState = 'goal'
         end
 
         if player2Goal(ball) then
@@ -143,8 +160,11 @@ function love.update(dt)
             -- reset the ball position
             ball:reset()
 
+            -- change palyer goal value
+            playerGoal = 'Player 2'
+
             -- change game state
-            gameState = 'start'
+            gameState = 'goal'
         end
         
         -- the key interaction for user inputs
@@ -201,6 +221,7 @@ end
 -- this is the rendered screen for each game state
 function startScreen()
     -- this is the draw for gameState=start
+    love.graphics.printf("NEW PONG", 0, VIRTUAL_HEIGHT/2, VIRTUAL_WIDTH, "center")
 end
 
 function pauseScreen()
@@ -210,4 +231,10 @@ end
 
 function overScreen()
     -- render screen when game over
+    love.graphics.printf("GAME OVER", 0, VIRTUAL_HEIGHT/2, VIRTUAL_WIDTH, "center")
+end
+
+function goalScreen(playerName)
+    -- render screen to decide which player add one goal
+    love.graphics.printf(playerName.." GOAL!", 0, VIRTUAL_HEIGHT/2, VIRTUAL_WIDTH, "center")
 end
