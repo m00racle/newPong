@@ -103,11 +103,15 @@ Still need improvement I know but this is a progress. Next I need to re-arrange 
 
 [x] : Modify score line according to the player goals
 
-[ ] TODO: Add more GameState to accomodate start of the game, pause, and players goals
+[x] : Add more GameState to accomodate start of the game, pause, and players goals
+
+NOTE: the variable to lead the printed player which has goals is not in the best practice since it just directly change local variable.
 
 [ ] TODO: Add rules to end the game in certain score line and make game over gameState
 
-[ ] TODO: Find out how to concatenate string in Lua!
+[x] TODO: Find out how to concatenate string in Lua! 
+
+NOTE: link to documentation on [String concatenation on Lua](https://www.dannyguo.com/blog/how-to-concatenate-strings-in-lua/)
 
 ## Add Class Library
 **__NOTE: LUA AS PROGRAMMING LANGUAGE BY DEFAULT DOES NOT PROVIDE CLASS AS STRUCTURE, BUT WE CAN MAKE ONE CLOSELY  RESEMBLES CLASS BEHAVIOR EVEN ITS INHERITANCE NATURE__**
