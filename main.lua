@@ -27,6 +27,10 @@ PAD_THICK = 5
 -- Ball specification 
 BALL_RADIUS = 3
 
+-- specified maximum score to end the game
+MAX_SCORE = 3
+-- TODO: THIS IS TEST ONLY THAT USE MAX SCORE = 3 CHANGE LATER ON 
+
 --load the initial settings.
 function love.load()
     -- the welcome font seems so blurry try the filter.
@@ -73,6 +77,12 @@ function love.keypressed(key)
             gameState = 'play'
         elseif gameState == 'goal' then
             gameState = 'play'
+        elseif gameState == 'over' then
+            -- reset all
+            player1:reset()
+            player2:reset()
+            ball:reset()
+            gameState = 'start'
         end
     end
 end
@@ -117,6 +127,9 @@ function love.draw()
     elseif gameState == 'goal' then
         -- this will call the latest goal player
         goalScreen(playerGoal)
+    elseif gameState == 'over' then
+        -- this means game over
+        overScreen(playerGoal)
     end
     
     -- end the rendering process by push lib
@@ -148,7 +161,11 @@ function love.update(dt)
             playerGoal = 'Player 1'
 
             -- change game state
-            gameState = 'goal'
+            if score >= MAX_SCORE then
+                gameState = 'over'
+            else
+                gameState = 'goal'
+            end
         end
 
         if player2Goal(ball) then
@@ -164,7 +181,11 @@ function love.update(dt)
             playerGoal = 'Player 2'
 
             -- change game state
-            gameState = 'goal'
+            if score >= MAX_SCORE then
+                gameState = 'over'
+            else
+                gameState = 'goal'
+            end
         end
         
         -- the key interaction for user inputs
@@ -229,9 +250,9 @@ function pauseScreen()
     love.graphics.printf("PAUSED", 0, VIRTUAL_HEIGHT/2, VIRTUAL_WIDTH, "center")
 end
 
-function overScreen()
+function overScreen(playerName)
     -- render screen when game over
-    love.graphics.printf("GAME OVER", 0, VIRTUAL_HEIGHT/2, VIRTUAL_WIDTH, "center")
+    love.graphics.printf("GAME OVER "..playerName.." WIN!!", 0, VIRTUAL_HEIGHT/2, VIRTUAL_WIDTH, "center")
 end
 
 function goalScreen(playerName)

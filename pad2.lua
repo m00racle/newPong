@@ -90,7 +90,9 @@ end
 -- Pad must be able to reset its position 
 function Pad:reset()
     -- reset the y pos to center of the screen
-    self.posY = self.maxY / 2 - length / 2
+    self.posY = self.maxY / 2 - self.length / 2
+    -- reset the score line
+    self.score = 0
 end
 
 function Pad:setScore(score)
