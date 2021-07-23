@@ -20,7 +20,7 @@ Pad = Class{
         self.maxY = maxY 
         self.mode = mode
         -- I set the initial speed for each player's pads to 100
-        self.speed = 100
+        self.speed = 300
         -- initial score
         self.score = 0
     end

@@ -209,16 +209,16 @@ function goalStateUpdate(dt)
         -- set the ball position x in front of player 2
         ball:setPosX(player2:getPosX0() - 5)
         ball:setPosY(player2:getPosYmid())
-        -- ball:setDirection(math.random(math.pi/1.75, math.pi/2*2.75))
+        ball:setDirection(math.random(math.pi/6*4, math.pi/6*8)) 
     else
         -- set the ball position x in front of player 1
         ball:setPosX(player1:getPosX0() + 10)
         ball:setPosY(player1:getPosYmid())
-        -- ball:setDirection(math.random(math.pi/1.75, math.pi/2*2.75)-math.pi)
+        ball:setDirection(math.random(math.pi/6*4, math.pi/6*8) - math.pi) 
     end
 
-    -- set the next direction
-    ball:collideWithPad()
+    -- set the ball speed back to 100
+    ball:setSpeed(200)
 
     -- the pad of both player can still moved
     -- the key interaction for user inputs
