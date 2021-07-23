@@ -131,7 +131,9 @@ NOTE: in order to make the ball launch from its losing player I use the ball col
 ### Speed Tweaks
 Here is some tweak
 
-[ ] TODO the game feels boring seems like the speed is monotone
+[x]  the game feels boring seems like the speed is monotone
+
+for the moment I use the speed of the pad at 300 f, the ball initial speed at 200. Each time the ball collide with pad it increases its speed by 50 and each frame it will reduced by 0.1. Expect input and subject to changes in the future.
 
 ## Add Class Library
 **__NOTE: LUA AS PROGRAMMING LANGUAGE BY DEFAULT DOES NOT PROVIDE CLASS AS STRUCTURE, BUT WE CAN MAKE ONE CLOSELY  RESEMBLES CLASS BEHAVIOR EVEN ITS INHERITANCE NATURE__**
