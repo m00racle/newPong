@@ -49,6 +49,19 @@ function Ball:collideWithWall()
     end
 end
 
+-- fucntion to set the position of the ball 
+function Ball:setPosX(posX)
+    -- TODO set the x coordinate of the ball object
+end
+
+function Ball:setPosY(posY)
+    -- TODO set the y coordinate of the ball object.
+end
+
+function Ball:setDirection(direction)
+    -- TODO set the next direction of the ball
+end
+
 -- function get position of the ball
 function Ball:getPosX()
     -- function to get the x coordinate of the ball

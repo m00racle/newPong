@@ -139,77 +139,7 @@ end
 function love.update(dt)
     -- : set gamestate to 'play' to make the update function then all the game feature is on
     if gameState == 'play' then
-        ball:move(dt)
-
-        -- testing pad collide to pad
-        if isCollide(player1, ball) or isCollide(player2, ball) then
-            -- ball collide with pad then need to be deflected
-            ball:collideWithPad()
-        end
-
-        -- testing the ball is pass the screen width
-        if player1Goal(ball) then
-            -- add player1 score by one
-            score = player1:getScore()
-            score = score + 1
-            player1:setScore(score)
-
-            -- reset the ball position
-            ball:reset()
-
-            -- change palyer goal value
-            playerGoal = 'Player 1'
-
-            -- change game state
-            if score >= MAX_SCORE then
-                gameState = 'over'
-            else
-                gameState = 'goal'
-            end
-        end
-
-        if player2Goal(ball) then
-            -- add player1 score by one
-            score = player2:getScore()
-            score = score + 1
-            player2:setScore(score)
-
-            -- reset the ball position
-            ball:reset()
-
-            -- change palyer goal value
-            playerGoal = 'Player 2'
-
-            -- change game state
-            if score >= MAX_SCORE then
-                gameState = 'over'
-            else
-                gameState = 'goal'
-            end
-        end
-        
-        -- the key interaction for user inputs
-        -- this is player 1 part
-        if love.keyboard.isDown("w") then
-            -- move the player 1 pad upwards
-            player1:moveUp(dt)
-        end
-        
-        if love.keyboard.isDown('s') then
-            -- move the player 1 pad downward
-            player1:moveDown(dt)
-        end
-
-        -- this is part for the player 2
-        if love.keyboard.isDown('up') then 
-            -- move the player 2 pad upward
-            player2:moveUp(dt)
-        end
-
-        if love.keyboard.isDown('down') then 
-            -- move the player 2 pad downward
-            player2:moveDown(dt)
-        end
+        playStateUpdate(dt)
     end
     
 end
@@ -258,4 +188,92 @@ end
 function goalScreen(playerName)
     -- render screen to decide which player add one goal
     love.graphics.printf(playerName.." GOAL!", 0, VIRTUAL_HEIGHT/2, VIRTUAL_WIDTH, "center")
+end
+
+-- this is the functions on updates handled on each gameState
+function playStateUpdate()
+    -- TODO what happend in update fucntion for gameState=='play'
+end
+
+function goalStateUpdate(dt)
+    -- TODO what happen in gameState=='goal'
+    -- the ball must be located in the losing player
+    -- the pad of both player can still moved
+    -- the ball must follow the losing player pads movement
+    -- only when space bar is pressed the ball then can be played
+end
+
+function playStateUpdate(dt)
+    -- updates in gameState=='play'
+    ball:move(dt)
+
+    -- testing pad collide to pad
+    if isCollide(player1, ball) or isCollide(player2, ball) then
+        -- ball collide with pad then need to be deflected
+        ball:collideWithPad()
+    end
+
+    -- testing the ball is pass the screen width
+    if player1Goal(ball) then
+        -- add player1 score by one
+        score = player1:getScore()
+        score = score + 1
+        player1:setScore(score)
+
+        -- reset the ball position
+        ball:reset()
+
+        -- change palyer goal value
+        playerGoal = 'Player 1'
+
+        -- change game state
+        if score >= MAX_SCORE then
+            gameState = 'over'
+        else
+            gameState = 'goal'
+        end
+    end
+
+    if player2Goal(ball) then
+        -- add player1 score by one
+        score = player2:getScore()
+        score = score + 1
+        player2:setScore(score)
+
+        -- reset the ball position
+        ball:reset()
+
+        -- change palyer goal value
+        playerGoal = 'Player 2'
+
+        -- change game state
+        if score >= MAX_SCORE then
+            gameState = 'over'
+        else
+            gameState = 'goal'
+        end
+    end
+    
+    -- the key interaction for user inputs
+    -- this is player 1 part
+    if love.keyboard.isDown("w") then
+        -- move the player 1 pad upwards
+        player1:moveUp(dt)
+    end
+    
+    if love.keyboard.isDown('s') then
+        -- move the player 1 pad downward
+        player1:moveDown(dt)
+    end
+
+    -- this is part for the player 2
+    if love.keyboard.isDown('up') then 
+        -- move the player 2 pad upward
+        player2:moveUp(dt)
+    end
+
+    if love.keyboard.isDown('down') then 
+        -- move the player 2 pad downward
+        player2:moveDown(dt)
+    end
 end
