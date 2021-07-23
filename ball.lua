@@ -1,6 +1,10 @@
 -- this is the ball class
 Class = require 'class'
-
+START_SPEED = 200
+UPPER_SPEED_LIMIT = 350
+BOTTOM_SPEED_LIMIT = 200
+SPEED_INCREMENT = 50
+SPEED_DECREMENT = 0.1
 
 -- function Ball:create(radius, posX, posY, maxX, maxY)
 -- creates ball with size (if it can be radius of circle good)
@@ -14,7 +18,7 @@ Ball = Class{
         self.maxX = maxX
         self.maxY = maxY
         -- now for the preset properties
-        self.speed = 100
+        self.speed = START_SPEED
         self.direction = math.random(0, math.pi*2)
         -- direction is clockwise according to the positive x axis line as 0 degree.
     end
@@ -28,8 +32,8 @@ end
 -- function collideWithWall
 -- : refactor rename this function to make this function to collideWithWall
 function Ball:collideWithWall()
-    -- print('posY:')
-    -- print(self.posY)
+        
+    -- change the direction of the ball due to collision
     if(self.posY <= 0 or self.posY >= self.maxY)
     then
         if(self.direction > 0 and self.direction < math.pi/2)
@@ -65,6 +69,11 @@ function Ball:setDirection(direction)
     self.direction = direction
 end
 
+function Ball:setSpeed(speed)
+    -- set the ball speed
+    self.speed = speed
+end
+
 -- function get position of the ball
 function Ball:getPosX()
     -- function to get the x coordinate of the ball
@@ -87,6 +96,11 @@ function Ball:collideWithPad()
         -- thus means - pi
         self.direction = math.random(math.pi/6*4, math.pi/6*8) - math.pi
     end
+
+    -- change the speed due to collision to pad
+    if self.speed < UPPER_SPEED_LIMIT then
+        self.speed = self.speed + SPEED_INCREMENT
+    end
 end
 
 -- function reset
@@ -95,6 +109,7 @@ function Ball:reset()
     -- : make the ball return to the middle of the screen 
     self.posX = self.maxX /2 - self.radius
     self.posY = self.maxY /2 - self.radius
+    self.speed = START_SPEED
 end
 
 
@@ -105,4 +120,8 @@ function Ball:move(dt)
     -- this is basic movement testing direction bearing.
     self.posX = self.posX + dt*self.speed*math.cos(self.direction)
     self.posY = self.posY + dt*self.speed*math.sin(self.direction)
+    -- reduce the ball speed
+    if self.speed > BOTTOM_SPEED_LIMIT then
+        self.speed = self.speed - SPEED_DECREMENT
+    end
 end
