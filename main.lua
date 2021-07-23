@@ -68,7 +68,7 @@ function love.keypressed(key)
         --escape means quit the window
         love.event.quit()
     end
-    if key == 'enter' or key == 'return' then
+    if key == 'space' then
         if gameState == 'start' then
             gameState = 'play'
         elseif gameState == 'play' then
