@@ -128,6 +128,11 @@ NOTE: in order to make the ball launch from its losing player I use the ball col
 
 [x] : player 1 has difficulties reaching the enter/return key just to pause. -> change the function key from 'enter'/'return' to 'space' bar. this will make easier for both players to reach the button to pause or resume the game.
 
+### Speed Tweaks
+Here is some tweak
+
+[ ] TODO the game feels boring seems like the speed is monotone
+
 ## Add Class Library
 **__NOTE: LUA AS PROGRAMMING LANGUAGE BY DEFAULT DOES NOT PROVIDE CLASS AS STRUCTURE, BUT WE CAN MAKE ONE CLOSELY  RESEMBLES CLASS BEHAVIOR EVEN ITS INHERITANCE NATURE__**
 
