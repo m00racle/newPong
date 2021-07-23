@@ -115,6 +115,19 @@ NOTE: the reset call for ball and all players is moved to the function key press
 
 NOTE: link to documentation on [String concatenation on Lua](https://www.dannyguo.com/blog/how-to-concatenate-strings-in-lua/)
 
+## TWEAKS
+Basic functionalities on this game is already proven to be done. Now I just need to make some tweaks to make the game more 'playable'.
+Here some steps taken in order to tweak some functionalities. Starting with the problem and then report each solution. 
+
+### Tweaks day 1
+Here si some problem need to be fix/improve:
+
+[ ] TODO: The ball should start from the last player loss on the goals.
+
+[ ] TODO: player 1 has difficulties reaching the enter/return key just to pause.
+
+[ ] TODO: give me menu which is better than just escape to quit the application.
+
 ## Add Class Library
 **__NOTE: LUA AS PROGRAMMING LANGUAGE BY DEFAULT DOES NOT PROVIDE CLASS AS STRUCTURE, BUT WE CAN MAKE ONE CLOSELY  RESEMBLES CLASS BEHAVIOR EVEN ITS INHERITANCE NATURE__**
 
