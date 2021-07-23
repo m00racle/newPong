@@ -122,11 +122,11 @@ Here some steps taken in order to tweak some functionalities. Starting with the 
 ### Tweaks day 1
 Here si some problem need to be fix/improve:
 
-[ ] TODO: The ball should start from the last player loss on the goals.
+[x] : The ball should start from the last player loss on the goals. Done I put the ball in front of each player. 
 
-[ ] TODO: player 1 has difficulties reaching the enter/return key just to pause.
+NOTE: in order to make the ball launch from its losing player I use the ball collide with pad which is not really ideal. next tweak should address this.
 
-[ ] TODO: give me menu which is better than just escape to quit the application.
+[x] : player 1 has difficulties reaching the enter/return key just to pause. -> change the function key from 'enter'/'return' to 'space' bar. this will make easier for both players to reach the button to pause or resume the game.
 
 ## Add Class Library
 **__NOTE: LUA AS PROGRAMMING LANGUAGE BY DEFAULT DOES NOT PROVIDE CLASS AS STRUCTURE, BUT WE CAN MAKE ONE CLOSELY  RESEMBLES CLASS BEHAVIOR EVEN ITS INHERITANCE NATURE__**
