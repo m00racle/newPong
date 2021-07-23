@@ -120,7 +120,6 @@ function love.draw()
     elseif gameState == 'pause' then
         -- else this will be paused
         pauseScreen()
-
     elseif gameState == 'start' then 
         -- this will be start screen
         startScreen()
@@ -140,6 +139,8 @@ function love.update(dt)
     -- : set gamestate to 'play' to make the update function then all the game feature is on
     if gameState == 'play' then
         playStateUpdate(dt)
+    elseif gameState == 'goal' then
+        goalStateUpdate(dt)
     end
     
 end
@@ -188,18 +189,61 @@ end
 function goalScreen(playerName)
     -- render screen to decide which player add one goal
     love.graphics.printf(playerName.." GOAL!", 0, VIRTUAL_HEIGHT/2, VIRTUAL_WIDTH, "center")
+    -- render player1 pad
+    player1:render()
+
+    -- render the pad for player 2
+    player2:render()
+
+    -- render the ball
+    ball:render()
 end
 
 -- this is the functions on updates handled on each gameState
-function playStateUpdate()
-    -- TODO what happend in update fucntion for gameState=='play'
-end
 
 function goalStateUpdate(dt)
     -- TODO what happen in gameState=='goal'
     -- the ball must be located in the losing player
-    -- the pad of both player can still moved
     -- the ball must follow the losing player pads movement
+    if playerGoal == 'Player 1' then
+        -- set the ball position x in front of player 2
+        ball:setPosX(player2:getPosX0() - 5)
+        ball:setPosY(player2:getPosYmid())
+        -- ball:setDirection(math.random(math.pi/1.75, math.pi/2*2.75))
+    else
+        -- set the ball position x in front of player 1
+        ball:setPosX(player1:getPosX0() + 10)
+        ball:setPosY(player1:getPosYmid())
+        -- ball:setDirection(math.random(math.pi/1.75, math.pi/2*2.75)-math.pi)
+    end
+
+    -- set the next direction
+    ball:collideWithPad()
+
+    -- the pad of both player can still moved
+    -- the key interaction for user inputs
+    -- this is player 1 part
+    if love.keyboard.isDown("w") then
+        -- move the player 1 pad upwards
+        player1:moveUp(dt)
+    end
+    
+    if love.keyboard.isDown('s') then
+        -- move the player 1 pad downward
+        player1:moveDown(dt)
+    end
+
+    -- this is part for the player 2
+    if love.keyboard.isDown('up') then 
+        -- move the player 2 pad upward
+        player2:moveUp(dt)
+    end
+
+    if love.keyboard.isDown('down') then 
+        -- move the player 2 pad downward
+        player2:moveDown(dt)
+    end
+    
     -- only when space bar is pressed the ball then can be played
 end
 
@@ -220,9 +264,6 @@ function playStateUpdate(dt)
         score = score + 1
         player1:setScore(score)
 
-        -- reset the ball position
-        ball:reset()
-
         -- change palyer goal value
         playerGoal = 'Player 1'
 
@@ -239,9 +280,6 @@ function playStateUpdate(dt)
         score = player2:getScore()
         score = score + 1
         player2:setScore(score)
-
-        -- reset the ball position
-        ball:reset()
 
         -- change palyer goal value
         playerGoal = 'Player 2'

@@ -52,6 +52,11 @@ function Pad:getPosY1()
     return self.posY + self.length
 end
 
+function Pad:getPosYmid()
+    -- get the middle Y coordinate of each pad
+    return self.posY + self.length/2
+end
+
 -- thePad will have function on render
 --      render will draw the updated properties of the pad.
 --      render will draw pad as rectangle.

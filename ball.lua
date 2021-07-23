@@ -51,15 +51,18 @@ end
 
 -- fucntion to set the position of the ball 
 function Ball:setPosX(posX)
-    -- TODO set the x coordinate of the ball object
+    --  set the x coordinate of the ball object
+    self.posX = posX
 end
 
 function Ball:setPosY(posY)
-    -- TODO set the y coordinate of the ball object.
+    --  set the y coordinate of the ball object.
+    self.posY = posY
 end
 
 function Ball:setDirection(direction)
-    -- TODO set the next direction of the ball
+    --  set the next direction of the ball
+    self.direction = direction
 end
 
 -- function get position of the ball
@@ -77,12 +80,12 @@ function Ball:collideWithPad()
     -- change the direction when colliding with pad
     if self.posX > self.maxX/2 then
         -- this collide with player 2
-        self.direction = math.random(math.pi/2, math.pi/2*3)
+        self.direction = math.random(math.pi/6*4, math.pi/6*8)
     else
         -- this collide with player 1
         -- direction is deflected between 3/2 pi to pi/2 
         -- thus means - pi
-        self.direction = math.random(math.pi/2, math.pi/2*3) - math.pi
+        self.direction = math.random(math.pi/6*4, math.pi/6*8) - math.pi
     end
 end
 
