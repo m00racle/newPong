@@ -138,13 +138,13 @@ for the moment I use the speed of the pad at 300 f, the ball initial speed at 20
 ### Tweaks day 2
 This time we will tweak the menu part.
 
-[ ] menus should come up when the game state is pause
+[x] menus should come up when the game state is pause
 
-[ ] menus should includes return to game and exit (main menu) the game
+[x] menus should includes return to game and exit (main menu) the game
 
-[ ] exit the game to main menu should reset the whole game.
+[x] exit the game to main menu should reset the whole game.
 
-The menus is only basic since the configuratin is not yet set!
+The menus is only basic since the configuratin is not yet set! The goal state will not directly able to reset and to reset must through to pause gameState.
 
 ## Add Class Library
 **__NOTE: LUA AS PROGRAMMING LANGUAGE BY DEFAULT DOES NOT PROVIDE CLASS AS STRUCTURE, BUT WE CAN MAKE ONE CLOSELY  RESEMBLES CLASS BEHAVIOR EVEN ITS INHERITANCE NATURE__**
