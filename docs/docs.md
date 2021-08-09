@@ -135,6 +135,17 @@ Here is some tweak
 
 for the moment I use the speed of the pad at 300 f, the ball initial speed at 200. Each time the ball collide with pad it increases its speed by 50 and each frame it will reduced by 0.1. Expect input and subject to changes in the future.
 
+### Tweaks day 2
+This time we will tweak the menu part.
+
+[ ] menus should come up when the game state is pause
+
+[ ] menus should includes return to game and exit (main menu) the game
+
+[ ] exit the game to main menu should reset the whole game.
+
+The menus is only basic since the configuratin is not yet set!
+
 ## Add Class Library
 **__NOTE: LUA AS PROGRAMMING LANGUAGE BY DEFAULT DOES NOT PROVIDE CLASS AS STRUCTURE, BUT WE CAN MAKE ONE CLOSELY  RESEMBLES CLASS BEHAVIOR EVEN ITS INHERITANCE NATURE__**
 
