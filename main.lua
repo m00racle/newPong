@@ -173,7 +173,7 @@ end
 -- this is the rendered screen for each game state
 function startScreen()
     -- this is the draw for gameState=start
-    love.graphics.printf("NEW PONG", 0, VIRTUAL_HEIGHT/2, VIRTUAL_WIDTH, "center")
+    love.graphics.printf("NEW PONG \n press space to start", 0, VIRTUAL_HEIGHT/2, VIRTUAL_WIDTH, "center")
 end
 
 function pauseScreen()
@@ -183,7 +183,7 @@ end
 
 function overScreen(playerName)
     -- render screen when game over
-    love.graphics.printf("GAME OVER "..playerName.." WIN!!", 0, VIRTUAL_HEIGHT/2, VIRTUAL_WIDTH, "center")
+    love.graphics.printf("GAME OVER "..playerName.." WIN!! \n press space to start menu", 0, VIRTUAL_HEIGHT/2, VIRTUAL_WIDTH, "center")
 end
 
 function goalScreen(playerName)
