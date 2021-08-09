@@ -79,10 +79,7 @@ function love.keypressed(key)
             gameState = 'play'
         elseif gameState == 'over' then
             -- reset all
-            player1:reset()
-            player2:reset()
-            ball:reset()
-            gameState = 'start'
+            love.load()
         end
     end
 end
