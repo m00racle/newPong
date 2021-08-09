@@ -65,8 +65,17 @@ function love.keypressed(key)
     -- : put the gamestate to put the game into its play or start (use spacebar or enter/return key)
     
     if key == 'escape' then
-        --escape means quit the window
-        love.event.quit()
+        if gameState == 'start' then
+            --escape means quit the window
+            love.event.quit()
+        elseif gameState == 'pause' then
+            -- reset all the game to start gameState
+            love.load()
+        elseif gameState == 'play' then
+            -- goes to pause
+            gameState = 'pause'
+        end
+
     end
     if key == 'space' then
         if gameState == 'start' then
@@ -170,12 +179,12 @@ end
 -- this is the rendered screen for each game state
 function startScreen()
     -- this is the draw for gameState=start
-    love.graphics.printf("NEW PONG \n press space to start", 0, VIRTUAL_HEIGHT/2, VIRTUAL_WIDTH, "center")
+    love.graphics.printf("NEW PONG \n press space to start \n ESC to quit", 0, VIRTUAL_HEIGHT/2, VIRTUAL_WIDTH, "center")
 end
 
 function pauseScreen()
     -- render screen when game state is paused
-    love.graphics.printf("PAUSED", 0, VIRTUAL_HEIGHT/2, VIRTUAL_WIDTH, "center")
+    love.graphics.printf("PAUSED \n press space to continue \n press esc to reset to start menu", 0, VIRTUAL_HEIGHT/2, VIRTUAL_WIDTH, "center")
 end
 
 function overScreen(playerName)
