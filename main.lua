@@ -37,7 +37,7 @@ function love.load()
     love.graphics.setDefaultFilter('nearest', 'nearest')
     --set the display (both windows and virtual) 
     -- I want vsync but the user should be prevented to make fullscreen, at this initial stage the user must not allowed to resize the screen.
-    push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {fullscreen=false, vsync=true, resizable=false})
+    push:setupScreen(VIRTUAL_WIDTH, VIRTUAL_HEIGHT, WINDOW_WIDTH, WINDOW_HEIGHT, {fullscreen=false, vsync=true, resizable=true})
     --set the title of the game in the window to identify that we are runnig the correct app
     love.window.setTitle('The New Pong!')
 
@@ -58,6 +58,12 @@ function love.load()
 
     -- : initiate gamestate variable and set it to 'start' this is the beginning of the game
     gameState = 'start'
+end
+
+-- the function to handle window resizing
+function love.resize(w,h)
+    -- let the push:resize to handle the resizing processes
+    push:resize(w,h)
 end
 
 --I want to make the apps quit when the user hit the escape key
