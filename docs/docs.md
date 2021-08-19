@@ -148,6 +148,14 @@ Here is the image of the BFXR user interface:
 - [ ] the audio should be the part of the ball class since this is the behavior of the ball
 - [ ] tested the instatiation and use the [Source returned](https://love2d.org/wiki/Source) by adding :play() method.
 
+### Resizeable Window Tweak
+This is part of last update and tweak of the game.
+
+- [ ] change the push resizeable=flase into =true
+- [ ] then use the function.resize(w,h)
+- [ ] inside the function we use push:resize(w,h) to let push to handle the resizing on window while maintaining the pixel density
+ 
+
 ## Add Class Library
 **__NOTE: LUA AS PROGRAMMING LANGUAGE BY DEFAULT DOES NOT PROVIDE CLASS AS STRUCTURE, BUT WE CAN MAKE ONE CLOSELY  RESEMBLES CLASS BEHAVIOR EVEN ITS INHERITANCE NATURE__**
 
