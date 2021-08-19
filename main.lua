@@ -31,6 +31,9 @@ BALL_RADIUS = 3
 MAX_SCORE = 3
 -- TODO: THIS IS TEST ONLY THAT USE MAX SCORE = 3 CHANGE LATER ON 
 
+-- sound effect for goals
+GOAL_AUDIO = "audio/goal.wav"
+
 --load the initial settings.
 function love.load()
     -- the welcome font seems so blurry try the filter.
@@ -55,6 +58,11 @@ function love.load()
 
     -- initiate ball
     ball = Ball(BALL_RADIUS, VIRTUAL_WIDTH/2 - BALL_RADIUS, VIRTUAL_HEIGHT/2 - BALL_RADIUS, VIRTUAL_WIDTH, VIRTUAL_HEIGHT)
+
+    -- goal sound effect
+    -- TODO this is not a best practice suggesting using table.
+    sounds = {}
+    sounds["goal"] = love.audio.newSource(GOAL_AUDIO, "static")
 
     -- : initiate gamestate variable and set it to 'start' this is the beginning of the game
     gameState = 'start'
@@ -265,6 +273,9 @@ function playStateUpdate(dt)
 
     -- testing the ball is pass the screen width
     if player1Goal(ball) then
+        -- play the goal sound effect
+        sounds["goal"]:play()
+
         -- add player1 score by one
         score = player1:getScore()
         score = score + 1
@@ -282,6 +293,9 @@ function playStateUpdate(dt)
     end
 
     if player2Goal(ball) then
+        -- play the goal sound effect
+        sounds["goal"]:play()
+
         -- add player1 score by one
         score = player2:getScore()
         score = score + 1
