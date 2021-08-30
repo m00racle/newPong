@@ -116,16 +116,6 @@ function Ball:collideWithPad()
     end
 end
 
--- function reset
-function Ball:reset()
-    -- reset the ball position to the middle of the screen
-    -- : make the ball return to the middle of the screen 
-    self.posX = self.maxX /2 - self.radius
-    self.posY = self.maxY /2 - self.radius
-    self.speed = START_SPEED
-end
-
-
 -- function move
 function Ball:move(dt)
     -- test if ball collide
