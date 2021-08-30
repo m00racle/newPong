@@ -6,6 +6,9 @@ BOTTOM_SPEED_LIMIT = 200
 SPEED_INCREMENT = 50
 SPEED_DECREMENT = 0.1
 
+HIT_PAD_AUDIO = "audio/hit_pad.wav"
+HIT_WALL_AUDIO = "audio/hit_wall.wav"
+
 -- function Ball:create(radius, posX, posY, maxX, maxY)
 -- creates ball with size (if it can be radius of circle good)
 -- if not I will just make it as rectangle with small size
@@ -21,6 +24,11 @@ Ball = Class{
         self.speed = START_SPEED
         self.direction = math.random(0, math.pi*2)
         -- direction is clockwise according to the positive x axis line as 0 degree.
+
+        self.sounds = {}
+        
+        self.sounds["hit_pad"] = love.audio.newSource(HIT_PAD_AUDIO, "static")
+        self.sounds["hit_wall"] = love.audio.newSource(HIT_WALL_AUDIO, "static")
     end
 }
 
@@ -32,10 +40,12 @@ end
 -- function collideWithWall
 -- : refactor rename this function to make this function to collideWithWall
 function Ball:collideWithWall()
-        
     -- change the direction of the ball due to collision
     if(self.posY <= 0 or self.posY >= self.maxY)
     then
+        -- play the sound effect
+        self.sounds["hit_wall"]:play()
+
         if(self.direction > 0 and self.direction < math.pi/2)
         then
             return (math.pi/2 - self.direction) + math.pi*3/2
@@ -86,6 +96,9 @@ function Ball:getPosY()
 end
 
 function Ball:collideWithPad()
+    -- play the sound effect
+    self.sounds["hit_pad"]:play()
+
     -- change the direction when colliding with pad
     if self.posX > self.maxX/2 then
         -- this collide with player 2
@@ -102,16 +115,6 @@ function Ball:collideWithPad()
         self.speed = self.speed + SPEED_INCREMENT
     end
 end
-
--- function reset
-function Ball:reset()
-    -- reset the ball position to the middle of the screen
-    -- : make the ball return to the middle of the screen 
-    self.posX = self.maxX /2 - self.radius
-    self.posY = self.maxY /2 - self.radius
-    self.speed = START_SPEED
-end
-
 
 -- function move
 function Ball:move(dt)
